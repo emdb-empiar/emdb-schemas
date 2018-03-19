@@ -643,7 +643,7 @@
             <xs:element name="strain" type="xs:token" minOccurs="0"/>
             <xs:element name="synonym_organism" type="xs:token" minOccurs="0"/>
         </xs:sequence>
-        <xs:attribute name="database" use="required">
+        <xs:attribute name="database">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="NCBI"/>
