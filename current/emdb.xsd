@@ -364,6 +364,7 @@
       <xs:enumeration value="REICHERT-JUNG PLUNGER"/>
       <xs:enumeration value="ZEISS PLUNGE FREEZER CRYOBOX"/>
       <xs:enumeration value="OTHER"/>
+      <xs:enumeration value="SPOTITON"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:complexType name="imgType">
