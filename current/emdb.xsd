@@ -1202,6 +1202,7 @@
       <xs:enumeration value="FEI EAGLE (4k x 4k)"/>
       <xs:enumeration value="FEI FALCON I (4k x 4k)"/>
       <xs:enumeration value="FEI FALCON II (4k x 4k)"/>
+      <xs:enumeration value="FEI FALCON III (4k x 4k)"/>
       <xs:enumeration value="GATAN MULTISCAN"/>
       <xs:enumeration value="GATAN ORIUS SC200 (2k x 2k)"/>
       <xs:enumeration value="GATAN ORIUS SC600 (2.7k x 2.7k)"/>
