@@ -1796,7 +1796,7 @@
                                             </xs:element>
                                             <xs:element name="voltage" type="fib_voltage_type"/>
                                             <xs:element name="current" type="fib_current_type"/>
-                                            <xs:element name="dose_rate" type="fib_dose_rate_type"/>
+                                            <xs:element name="dose_rate" type="fib_dose_rate_type" minOccurs="0"/>
                                             <xs:element name="duration" type="fib_duration_type"/>
                                             <xs:element name="temperature" type="temperature_type"/>
                                             <xs:element name="initial_thickness" type="fib_initial_thickness_type"/>
@@ -1887,14 +1887,13 @@
     <xs:complexType name="fib_dose_rate_type">
         <xs:simpleContent>
             <xs:extension base="allowed_focus_ion_dose_rate">
-                <xs:attribute name="units" type="xs:token" default="ions/nm^2/s"/>
+                <xs:attribute name="units" type="xs:token" default="ions/(cm^2*s)"/>
             </xs:extension>
         </xs:simpleContent>
     </xs:complexType>
     <xs:simpleType name="allowed_focus_ion_dose_rate">
         <xs:restriction base="xs:float">
             <xs:minExclusive value="0"/>
-            <xs:maxInclusive value="10"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:complexType name="fib_duration_type">
