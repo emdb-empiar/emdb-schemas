@@ -1969,7 +1969,7 @@
                         <xs:enumeration value="FEI/PHILIPS EM400"/>
                         <xs:enumeration value="FEI/PHILIPS EM420"/>
                         <xs:enumeration value="HITACHI EF2000"/>
-                        <xs:enumeration value="HITACHI H-95000SD"/>
+                        <xs:enumeration value="HITACHI H-9500SD"/>
                         <xs:enumeration value="HITACHI H7600"/>
                         <xs:enumeration value="HITACHI HF2000"/>
                         <xs:enumeration value="HITACHI HF3000"/>
