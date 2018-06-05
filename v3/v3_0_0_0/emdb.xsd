@@ -1551,7 +1551,7 @@
     </xs:simpleType>
     <xs:complexType name="grid_pretreatment_type">
         <xs:sequence>
-            <xs:element name="type" type="xs:token"/>
+            <xs:element name="type" type="xs:token" minOccurs="0"/>
             <xs:element name="time" minOccurs="0">
                 <xs:complexType>
                     <xs:simpleContent>
