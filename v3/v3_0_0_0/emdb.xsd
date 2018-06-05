@@ -2343,8 +2343,8 @@
     </xs:simpleType>
     <xs:simpleType name="allowed_defocus_max">
         <xs:restriction base="xs:float">
-            <xs:minInclusive value="-20"/>
-            <xs:maxInclusive value="20"/>
+            <xs:minInclusive value="-30"/>
+            <xs:maxInclusive value="30"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="allowed_magnification">
