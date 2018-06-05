@@ -3636,7 +3636,6 @@
     <xs:simpleType name="allowed_pixel_sampling">
         <xs:restriction base="xs:float">
             <xs:minExclusive value="0"/>
-            <xs:maxExclusive value="50"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:complexType name="interpretation_type">
