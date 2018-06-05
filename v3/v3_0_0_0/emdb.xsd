@@ -2333,7 +2333,7 @@
     <xs:simpleType name="allowed_nominal_cs">
         <xs:restriction base="xs:float">
             <xs:minInclusive value="0"/>
-            <xs:maxInclusive value="10"/>
+            <xs:maxInclusive value="20"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="allowed_defocus_min">
