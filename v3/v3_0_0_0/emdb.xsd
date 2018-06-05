@@ -3017,8 +3017,8 @@
     </xs:complexType>
     <xs:simpleType name="allowed_tilt_angle_random_conical">
         <xs:restriction base="xs:float">
-            <xs:minInclusive value="45"/>
-            <xs:maxInclusive value="70"/>
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="180"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="allowed_tilt_angle1Orthogonal">
