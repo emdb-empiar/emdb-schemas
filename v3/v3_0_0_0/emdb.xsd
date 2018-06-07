@@ -2326,7 +2326,7 @@
     </xs:simpleType>
     <xs:simpleType name="allowed_c2_aperture_diameter">
         <xs:restriction base="xs:float">
-            <xs:minInclusive value="10"/>
+            <xs:minInclusive value="2"/>
             <xs:maxInclusive value="150"/>
         </xs:restriction>
     </xs:simpleType>
