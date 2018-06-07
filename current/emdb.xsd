@@ -1173,6 +1173,7 @@
       <xs:enumeration value="JEOL 2200FS"/>
       <xs:enumeration value="JEOL 2200FSC"/>
       <xs:enumeration value="JEOL 3000SFF"/>
+      <xs:enumeration value="JEOL 3100FEF"/>
       <xs:enumeration value="JEOL 3100FFC"/>
       <xs:enumeration value="JEOL 3200FS"/>
       <xs:enumeration value="JEOL 3200FSC"/>
