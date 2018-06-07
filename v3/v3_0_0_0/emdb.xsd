@@ -1830,7 +1830,7 @@
     <xs:simpleType name="allowed_diameter_colloidal_gold">
         <xs:restriction base="xs:float">
             <xs:minInclusive value="0.1"/>
-            <xs:maxInclusive value="20"/>
+            <xs:maxInclusive value="100"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:complexType name="temperature_type">
