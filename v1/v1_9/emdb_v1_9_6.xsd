@@ -1245,6 +1245,7 @@
       <xs:enumeration value="JEOL 3200FSC CRYOHOLDER"/>
       <xs:enumeration value="PHILIPS ROTATION HOLDER"/>
       <xs:enumeration value="SIDE ENTRY, EUCENTRIC"/>
+      <xs:enumeration value="JEOL CRYOSPECPORTER"/>
       <xs:enumeration value="OTHER"/>
     </xs:restriction>
   </xs:simpleType>
