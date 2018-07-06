@@ -1,0 +1,8 @@
+
+This file contains information on changes made for each version change to the EMDB XML schema after version 3.0.0.0
+
+The format of the information given is:
+
+        version number, changes made; additional information
+
+3.0.0.1 : 'JEOL CRYOSPECPORTER' enumeration added to the 'specimen_holder_model' element
