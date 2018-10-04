@@ -6,3 +6,4 @@ The format of the information given is:
         version number, changes made; additional information
 
 3.0.0.1 : 'JEOL CRYOSPECPORTER' enumeration added to the 'specimen_holder_model' element
+3.0.1.1 : (1) Changed format for fsc file names; (2) Added organ, tissue, cell, organelle and cellular_location elements to complex natural source
