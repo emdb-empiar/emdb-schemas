@@ -356,7 +356,7 @@
         <xs:union memberTypes="author_enums">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
-                    <xs:pattern value="[A-Za-z '\-]+(Jr\.|III)? [A-Z\-]+"/>
+                    <xs:pattern value="[A-Za-z']+(( |-)[A-Za-z]+)*(Jr|III)?"/>
                 </xs:restriction>
             </xs:simpleType>
         </xs:union>
