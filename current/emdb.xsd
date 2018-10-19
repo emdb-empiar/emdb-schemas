@@ -1181,6 +1181,7 @@
       <xs:enumeration value="JEOL 3200FSC"/>
       <xs:enumeration value="JEOL 4000"/>
       <xs:enumeration value="JEOL 4000EX"/>
+      <xs:enumeration value="JEOL CRYO ARM 200"/>
       <xs:enumeration value="ZEISS LEO912"/>
       <xs:enumeration value="ZEISS LIBRA120PLUS"/>
       <xs:enumeration value="OTHER"/>
