@@ -831,8 +831,8 @@
   <xs:simpleType name="defocusAllowed">
     <xs:restriction base="xs:float">
       <!-- negative (underfocus) and positive (overfocus) -->
-      <xs:minInclusive value="-20000"/>
-      <xs:maxInclusive value="20000"/>
+      <xs:minInclusive value="-30000"/>
+      <xs:maxInclusive value="30000"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:complexType name="tiltType">
