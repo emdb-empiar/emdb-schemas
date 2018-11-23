@@ -7,3 +7,4 @@ The format of the information given is:
 
 3.0.0.1 : 'JEOL CRYOSPECPORTER' enumeration added to the 'specimen_holder_model' element
 3.0.1.1 : (1) Changed format for fsc file names; (2) Added organ, tissue, cell, organelle and cellular_location elements to complex natural source; (3) author_type pattern changed to [A-Za-z']+(( |-)[A-Za-z]+)*(Jr|III)?
+3.0.1.2 : Changed regex for authors to ([A-Za-z' \-]+ (Jr.?|II|III)?) ?([A-Za-z\-]*)
