@@ -12,3 +12,4 @@ The format of the information given is:
 3.0.1.4 : Added 'GATAN K3 (6k x 4k)' and 'GATAN K3 BIOQUANTUM (6k x 4k)' to allowed_film_or_detector_model
 3.0.1.5 : Made 'code' and 'country' mandatory for the 'grant_reference_type'
 3.0.1.6 : Added enumerations: 1. microscope {"TFS GLACIOS",  "TFS KRIOS"} and 2. specimen_holder_model {"FISCHIONE 2550",  "GATAN ELSA 698 SINGLE TILT LIQUID NITROGEN CRYO TRANSFER HOLDER"}
+3.0.1.7 : Added "TFS TALOS" enumeration to microscope
