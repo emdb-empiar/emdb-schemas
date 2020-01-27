@@ -19,13 +19,13 @@
      Contact: <help@emdatabank.org> for questions or suggestions.
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-           attributeFormDefault="unqualified">
+  attributeFormDefault="unqualified">
   <xs:element name="emdEntry" type="entryType"/>
   <xs:complexType name="entryType">
     <xs:annotation>
-      <xs:documentation xml:lang="en">
-        Electron Microscopy Database record identified by its
-        accession code
+      <xs:documentation xml:lang="en"> 
+	  Electron Microscopy Database record identified by its
+	  accession code
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
@@ -44,8 +44,8 @@
   </xs:complexType>
   <xs:complexType name="adminType">
     <xs:annotation>
-      <xs:documentation xml:lang="en">
-        Information relevant for administration purposes. Not for
+      <xs:documentation xml:lang="en">         
+	Information relevant for administration purposes. Not for
         public release
       </xs:documentation>
     </xs:annotation>
@@ -55,9 +55,9 @@
   </xs:complexType>
   <xs:complexType name="depType">
     <xs:annotation>
-      <xs:documentation xml:lang="en">
-        Contains context information relevant to the EMD entry
-        record
+      <xs:documentation xml:lang="en"> 
+	  Contains context information relevant to the EMD entry
+	  record
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
@@ -107,8 +107,8 @@
   </xs:complexType>
   <xs:complexType name="mapType">
     <xs:annotation>
-      <xs:documentation xml:lang="en">
-        Information on the volume density map
+      <xs:documentation xml:lang="en">         
+	  Information on the volume density map
       </xs:documentation>
     </xs:annotation>
     <xs:all>
@@ -138,9 +138,9 @@
   </xs:complexType>
   <xs:complexType name="samplType">
     <xs:annotation>
-      <xs:documentation xml:lang="en">
-        Nature of the biological sample studied.
-        [/emdEntry/sample]
+      <xs:documentation xml:lang="en"> 
+	Nature of the biological sample studied.
+	[/emdEntry/sample]
       </xs:documentation>
     </xs:annotation>
     <xs:all>
@@ -156,8 +156,8 @@
   </xs:complexType>
   <xs:complexType name="expType">
     <xs:annotation>
-      <xs:documentation xml:lang="en">
-        Experimental techniques used to derive the density map.
+      <xs:documentation xml:lang="en">         
+	  Experimental techniques used to derive the density map.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
@@ -170,8 +170,8 @@
   </xs:complexType>
   <xs:complexType name="processType">
     <xs:annotation>
-      <xs:documentation xml:lang="en">
-        Digital processing of the image data.
+      <xs:documentation xml:lang="en">         
+	  Digital processing of the image data.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence minOccurs="1">
@@ -188,8 +188,8 @@
   </xs:complexType>
   <xs:complexType name="fittingType">
     <xs:annotation>
-      <xs:documentation xml:lang="en">
-        Fitting procedure details for coordinates.
+      <xs:documentation xml:lang="en">         
+	  Fitting procedure details for coordinates.
       </xs:documentation>
     </xs:annotation>
     <xs:all minOccurs="0">
@@ -206,8 +206,8 @@
   </xs:complexType>
   <xs:complexType name="supplType">
     <xs:annotation>
-      <xs:documentation xml:lang="en">
-        Supplemental data sets.
+      <xs:documentation xml:lang="en"> 
+	  Supplemental data sets.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
@@ -220,9 +220,9 @@
   <xs:complexType name="smplCompListType">
     <xs:annotation>
       <xs:documentation>
-        List of individual sample components.
-        [/emdEntry/sample/sampleComponentList]
-      </xs:documentation>
+	    List of individual sample components.
+	    [/emdEntry/sample/sampleComponentList]
+    </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="sampleComponent" type="smplCompType" maxOccurs="unbounded"/>
@@ -231,9 +231,9 @@
   <xs:complexType name="smplCompType">
     <xs:annotation>
       <xs:documentation>
-        A single sample component.
-        [/emdEntry/sample/sampleComponentList/sampleComponent]
-      </xs:documentation>
+	    A single sample component.
+	    [/emdEntry/sample/sampleComponentList/sampleComponent]
+    </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="entry" type="cmpntClassType"/>
@@ -278,7 +278,7 @@
       <xs:element name="lastPage" type="xs:string" minOccurs="0"/>
       <xs:element name="year" type="xs:string" minOccurs="0"/>
       <xs:element name="externalReference" type="externalRefType" minOccurs="0"
-                  maxOccurs="unbounded"/>
+        maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="nonJrnlArtType">
@@ -295,7 +295,7 @@
       <xs:element name="lastPage" type="xs:string" minOccurs="0"/>
       <xs:element name="year" type="xs:string" minOccurs="0"/>
       <xs:element name="externalReference" type="externalRefType" minOccurs="0"
-                  maxOccurs="unbounded"/>
+        maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="externalRefType">
@@ -326,7 +326,7 @@
       <xs:element name="specimenSupportDetails" type="xs:string" minOccurs="0"/>
       <xs:element name="twoDCrystalParameters" type="twoDxtalParamType" minOccurs="0" maxOccurs="1"/>
       <xs:element name="threeDCrystalParameters" type="threeDxtalParamType" minOccurs="0"
-                  maxOccurs="1"/>
+        maxOccurs="1"/>
       <xs:element name="helicalParameters" type="helixParamType" minOccurs="0" maxOccurs="1"/>
       <xs:element name="crystalGrowDetails" type="xs:string" minOccurs="0"/>
     </xs:all>
@@ -667,7 +667,7 @@
       <xs:element name="engSource" type="engSrcType" minOccurs="0" maxOccurs="1"/>
       <xs:element name="details" type="xs:string" minOccurs="0" maxOccurs="1"/>
       <xs:element name="externalReferences" type="externalReferencesType" minOccurs="0"
-                  maxOccurs="1"/>
+        maxOccurs="1"/>
     </xs:all>
   </xs:complexType>
   <xs:complexType name="riboTypePro">
@@ -685,7 +685,7 @@
       <xs:element name="engSource" type="engSrcType" minOccurs="0" maxOccurs="1"/>
       <xs:element name="details" type="xs:string" minOccurs="0" maxOccurs="1"/>
       <xs:element name="externalReferences" type="externalReferencesType" minOccurs="0"
-                  maxOccurs="1"/>
+        maxOccurs="1"/>
     </xs:all>
   </xs:complexType>
   <xs:complexType name="sciSpeciesType">
@@ -1124,9 +1124,11 @@
     <xs:restriction base="xs:string">
       <xs:enumeration value="FEI MORGAGNI"/>
       <xs:enumeration value="FEI POLARA 300"/>
+      <xs:enumeration value="FEI TALOS ARCTICA"/>
       <xs:enumeration value="FEI TECNAI 10"/>
       <xs:enumeration value="FEI TECNAI 12"/>
       <xs:enumeration value="FEI TECNAI 20"/>
+      <xs:enumeration value="FEI TECNAI ARCTICA"/>
       <xs:enumeration value="FEI TECNAI F20"/>
       <xs:enumeration value="FEI TECNAI F30"/>
       <xs:enumeration value="FEI TECNAI SPHERA"/>
@@ -1146,13 +1148,11 @@
       <xs:enumeration value="FEI/PHILIPS CM300FEG/T"/>
       <xs:enumeration value="FEI/PHILIPS EM400"/>
       <xs:enumeration value="FEI/PHILIPS EM420"/>
-      <xs:enumeration value="FEI TALOS ARCTICA"/>
-      <xs:enumeration value="FEI TECNAI ARCTICA"/>
       <xs:enumeration value="HITACHI EF2000"/>
+      <xs:enumeration value="HITACHI H-9500SD"/>
       <xs:enumeration value="HITACHI H7600"/>
       <xs:enumeration value="HITACHI HF2000"/>
       <xs:enumeration value="HITACHI HF3000"/>
-      <xs:enumeration value="HITACHI H-9500SD"/>
       <xs:enumeration value="JEOL 100CX"/>
       <xs:enumeration value="JEOL 1010"/>
       <xs:enumeration value="JEOL 1200"/>
@@ -1164,8 +1164,8 @@
       <xs:enumeration value="JEOL 2000EXII"/>
       <xs:enumeration value="JEOL 2010"/>
       <xs:enumeration value="JEOL 2010F"/>
-      <xs:enumeration value="JEOL 2010HT"/>
       <xs:enumeration value="JEOL 2010HC"/>
+      <xs:enumeration value="JEOL 2010HT"/>
       <xs:enumeration value="JEOL 2010UHR"/>
       <xs:enumeration value="JEOL 2011"/>
       <xs:enumeration value="JEOL 2100"/>
@@ -1177,11 +1177,16 @@
       <xs:enumeration value="JEOL 3100FFC"/>
       <xs:enumeration value="JEOL 3200FS"/>
       <xs:enumeration value="JEOL 3200FSC"/>
-      <xs:enumeration value="JEOL KYOTO-3000SFF"/>
-      <xs:enumeration value="JEOL 3200FSC"/>
       <xs:enumeration value="JEOL 4000"/>
       <xs:enumeration value="JEOL 4000EX"/>
       <xs:enumeration value="JEOL CRYO ARM 200"/>
+      <xs:enumeration value="JEOL CRYO ARM 300"/>
+      <xs:enumeration value="JEOL KYOTO-3000SFF"/>
+      <xs:enumeration value="TFS GLACIOS"/>
+      <xs:enumeration value="TFS KRIOS"/>
+      <xs:enumeration value="TFS TALOS"/>
+      <xs:enumeration value="TFS TALOS L120C"/>
+      <xs:enumeration value="TFS TALOS F200C"/>
       <xs:enumeration value="ZEISS LEO912"/>
       <xs:enumeration value="ZEISS LIBRA120PLUS"/>
       <xs:enumeration value="OTHER"/>
