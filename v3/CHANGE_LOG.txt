@@ -16,3 +16,4 @@ The format of the information given is:
 3.0.1.8 : Added (1) "TFS TALOS L120C" and "TFS TALOS F200C" enumerations to microscope; (2) Changed film_material from any token to {"CARBON", "CELLULOSE ACETATE", "FORMVAR", "GOLD", "GRAPHENE", "GRAPHENE OXIDE", "PARLODION"};
 (3) Added "NICKEL/TITANIUM" to grid material and "HITACHI H3000 UHVEM" microscope enumerations
 3.0.1.9 : (1) Added FEI FALCON IV (4k x 4k) to detectors; (2) Removed max limit to "allowed_acceleration_voltage"; (3) Removed max limit to "allowed_scaning_interval"
+3.0.1.10: Removed max limit for "allowed_focus_ion_final_thickness"
