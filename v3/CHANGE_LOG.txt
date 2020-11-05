@@ -18,3 +18,4 @@ The format of the information given is:
 3.0.1.9 : (1) Added FEI FALCON IV (4k x 4k) to detectors; (2) Removed max limit to "allowed_acceleration_voltage"; (3) Removed max limit to "allowed_scaning_interval"
 3.0.1.10: Removed max limit for "allowed_focus_ion_final_thickness"
 3.0.2.0: (1) Added synthetic_source to supramolecules and some macromolecules; (2) Changed name for <supramolecule>_natural_source_type to <supramolecule>_source_type; (3) Added "QCRG Structural Biology Consortium" to author_enums
+3.0.2.1: (1) Added 'PDBc' to 'processing_site'; (2) Made 'r_sym', 'overall_phase_error' and 'overall_phase_residual' in 'crystallography_statistics_type' non-mandatory (3) Changed the type of 'phase_error_rejection_criteria' in 'crystallography_statistics_type' from a float to a token; (4) Added a non-mandatory string element 'details' to 'specialist_optics_type'
