@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 #
-# Generated Thu Nov 19 14:53:21 2020 by generateDS.py version 2.29.5.
+# Generated Tue Nov 24 15:16:18 2020 by generateDS.py version 2.29.5.
 # Python 2.7.11 (v2.7.11:6d1b6a68f775, Dec  5 2015, 12:54:16)  [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)]
 #
 # Command line options:
@@ -19,7 +19,7 @@
 #   /Users/sanja/Documents/modified_generateDS-2.29.5/generateDS.py --root-element="emd" -f -o "/Users/sanja/IdeaProjects/emdb-schemas/v3/v3_0_2_2/emdb_relaxed.py" --no-warnings --external-encoding="utf-8" /Users/sanja/IdeaProjects/emdb-schemas/v3/v3_0_2_2/emdb_relaxed.xsd
 #
 # Current working directory (os.getcwd()):
-#   emdb-xml-translator
+#   modified_generateDS-2.29.5
 #
 
 import sys
@@ -145,15 +145,20 @@ except ImportError as exp:
             #    return ('%.1f' % input_data)
             #else:
             #    return ('%.2f' % input_data).rstrip('0')
+            ret = ''
             decimal_places = 1
             fl_input_data = float(input_data)
-            if "." in str(input_data):
-                stripped_input = str(input_data).rstrip("0") 
-                index = stripped_input.index(".")
-                len_stripped = len(stripped_input)
-                decimal_places = len_stripped - (index + 1)
-                fl_input_data = float(stripped_input)
-            return '%.*f' % (decimal_places, fl_input_data)
+            if "e" not in str(input_data) and "E" not in str(input_data):
+                if "." in str(input_data):
+                    stripped_input = str(input_data).rstrip("0")
+                    index = stripped_input.index(".")
+                    len_stripped = len(stripped_input)
+                    decimal_places = len_stripped - (index + 1)
+                    fl_input_data = float(stripped_input)
+                    ret = '%.*f' % (decimal_places, fl_input_data)
+            else:
+                ret = '%s' % str(fl_input_data)
+            return ret
     
         def gds_validate_float(self, input_data, node=None, input_name=''):
             return input_data
