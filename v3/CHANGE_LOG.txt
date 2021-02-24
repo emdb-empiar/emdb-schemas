@@ -21,3 +21,4 @@ The format of the information given is:
 3.0.2.1: (1) Added 'PDBc' to 'processing_site'; (2) Made 'r_sym', 'overall_phase_error' and 'overall_phase_residual' in 'crystallography_statistics_type' non-mandatory (3) Changed the type of 'phase_error_rejection_criteria' in 'crystallography_statistics_type' from a float to a token; (4) Added a non-mandatory string element 'details' to 'specialist_optics_type'
 3.0.2.2: Added 'PDBc' to 'deposition' and 'last_processing' in 'sites'
 3.0.2.3: (1) Added "JEOL 1000EES" to the list of microscopes; (2) changed sectioning focused_ion_beam duration to a float
+3.0.2.4: Added "FISCHIONE INSTRUMENTS DUAL AXIS TOMOGRAPHY HOLDER" to specimen_holder_model
