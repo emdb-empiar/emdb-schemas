@@ -23,3 +23,4 @@ The format of the information given is:
 3.0.2.3: (1) Added "JEOL 1000EES" to the list of microscopes; (2) changed sectioning focused_ion_beam duration to a float
 3.0.2.4: Added "FISCHIONE INSTRUMENTS DUAL AXIS TOMOGRAPHY HOLDER" to specimen_holder_model
 3.0.2.5: Changed the max limit of allowed_focus_ion_initial_thickness to 100000
+3.0.2.6: Added "TFS Tundra" to the list of microscopes
