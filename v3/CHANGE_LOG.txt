@@ -24,3 +24,4 @@ The format of the information given is:
 3.0.2.4: Added "FISCHIONE INSTRUMENTS DUAL AXIS TOMOGRAPHY HOLDER" to specimen_holder_model
 3.0.2.5: Changed the max limit of allowed_focus_ion_initial_thickness to 100000
 3.0.2.6: Added "TFS Tundra" to the list of microscopes; Changed "TFS Tundra" to "TFS TUNDRA"; Changed "applied_symmetry_type" type from token to int
+3.0.2.7: Created new type "author_ORCID_type" for storing ORCID; Changed "author" in "author_list" element's type to "author_ORCID_type"; Changed "author_order_type" base type to "author_ORCID_type"
