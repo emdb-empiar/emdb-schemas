@@ -5,6 +5,8 @@ setup(
     name='emdb_schemas',
     version='1.0',
     packages=find_packages(),
+    package_dir={'current': 'emdb_schemas/current'},
+    package_data={'current': ['emdb.xsd', 'emdb.py', 'emdb_relaxed.xsd', 'emdb_relaxed.py']},
     url='',
     license='',
     author='sanja',
