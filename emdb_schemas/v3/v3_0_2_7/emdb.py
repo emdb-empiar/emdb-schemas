@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 #
-# Generated Thu Apr 21 12:27:36 2022 by generateDS.py version 2.29.5.
+# Generated Thu Apr 21 12:57:41 2022 by generateDS.py version 2.29.5.
 # Python 3.9.5 (default, May 18 2021, 12:31:01)  [Clang 10.0.0 ]
 #
 # Command line options:
@@ -2577,7 +2577,7 @@ class journal_citation(GeneratedsSuper):
     def validate_yearType(self, value):
         # Validate type yearType, a restriction on xs:gYear.
         if value is not None and Validate_simpletypes_:
-            if value < 1900:
+            if value < str(1900):
                 warnings_.warn('Value "%(value)s" does not match xsd minInclusive restriction on yearType' % {"value" : value} )
     def hasContent_(self):
         if (
@@ -2857,7 +2857,7 @@ class non_journal_citation(GeneratedsSuper):
     def validate_yearType2(self, value):
         # Validate type yearType2, a restriction on xs:gYear.
         if value is not None and Validate_simpletypes_:
-            if value < 1900:
+            if value < str(1900):
                 warnings_.warn('Value "%(value)s" does not match xsd minInclusive restriction on yearType2' % {"value" : value} )
     def hasContent_(self):
         if (
