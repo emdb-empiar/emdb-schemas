@@ -2,24 +2,24 @@
 # -*- coding: utf-8 -*-
 
 #
-# Generated Thu Oct 21 15:46:04 2021 by generateDS.py version 2.29.5.
-# Python 2.7.11 (v2.7.11:6d1b6a68f775, Dec  5 2015, 12:54:16)  [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)]
+# Generated Thu Apr 21 11:51:44 2022 by generateDS.py version 2.29.5.
+# Python 3.9.5 (default, May 18 2021, 12:31:01)  [Clang 10.0.0 ]
 #
 # Command line options:
 #   ('--root-element', 'emd')
 #   ('-f', '')
-#   ('-o', '/Users/sanja/IdeaProjects/emdb-schemas/v3/v3_0_2_7/emdb.py')
+#   ('-o', '/Users/sanja/IdeaProjects/emdb_schemas/emdb_schemas/v3/v3_0_2_7/emdb.py')
 #   ('--no-warnings', '')
 #   ('--external-encoding', 'utf-8')
 #
 # Command line arguments:
-#   /Users/sanja/IdeaProjects/emdb-schemas/v3/v3_0_2_7/emdb.xsd
+#   /Users/sanja/IdeaProjects/emdb_schemas/emdb_schemas/current/emdb.xsd
 #
 # Command line:
-#   /Users/sanja/Documents/modified_generateDS-2.29.5/generateDS.py --root-element="emd" -f -o "/Users/sanja/IdeaProjects/emdb-schemas/v3/v3_0_2_7/emdb.py" --no-warnings --external-encoding="utf-8" /Users/sanja/IdeaProjects/emdb-schemas/v3/v3_0_2_7/emdb.xsd
+#   /Users/sanja/modified_generateDS-2.29.5/generateDS.py --root-element="emd" -f -o "/Users/sanja/IdeaProjects/emdb_schemas/emdb_schemas/v3/v3_0_2_7/emdb.py" --no-warnings --external-encoding="utf-8" /Users/sanja/IdeaProjects/emdb_schemas/emdb_schemas/current/emdb.xsd
 #
 # Current working directory (os.getcwd()):
-#   v3_0_2_7
+#   emdb_schemas
 #
 
 import sys
@@ -1264,7 +1264,7 @@ class version_type(GeneratedsSuper):
     def validate_dateType(self, value):
         # Validate type dateType, a restriction on xs:date.
         if value is not None and Validate_simpletypes_:
-            if value < self.gds_parse_date('2002-01-01'):
+            if value < str(self.gds_parse_date('2002-01-01')):
                 warnings_.warn('Value "%(value)s" does not match xsd minInclusive restriction on dateType' % {"value" : value} )
     def validate_processing_siteType(self, value):
         # Validate type processing_siteType, a restriction on xs:token.
@@ -2577,7 +2577,7 @@ class journal_citation(GeneratedsSuper):
     def validate_yearType(self, value):
         # Validate type yearType, a restriction on xs:gYear.
         if value is not None and Validate_simpletypes_:
-            if value < 1900:
+            if value < str(1900):
                 warnings_.warn('Value "%(value)s" does not match xsd minInclusive restriction on yearType' % {"value" : value} )
     def hasContent_(self):
         if (
@@ -2857,7 +2857,7 @@ class non_journal_citation(GeneratedsSuper):
     def validate_yearType2(self, value):
         # Validate type yearType2, a restriction on xs:gYear.
         if value is not None and Validate_simpletypes_:
-            if value < 1900:
+            if value < str(1900):
                 warnings_.warn('Value "%(value)s" does not match xsd minInclusive restriction on yearType2' % {"value" : value} )
     def hasContent_(self):
         if (
@@ -7924,7 +7924,7 @@ class buffer_type(GeneratedsSuper):
     def validate_phType(self, value):
         # Validate type phType, a restriction on xs:float.
         if value is not None and Validate_simpletypes_:
-            if value < 0:
+            if value < str(0):
                 warnings_.warn('Value "%(value)s" does not match xsd minInclusive restriction on phType' % {"value" : value} )
             if value > 14:
                 warnings_.warn('Value "%(value)s" does not match xsd maxInclusive restriction on phType' % {"value" : value} )
@@ -10229,7 +10229,7 @@ class base_microscopy_type(GeneratedsSuper):
     def validate_allowed_magnification(self, value):
         # Validate type allowed_magnification, a restriction on xs:float.
         if value is not None and Validate_simpletypes_:
-            if value < 1000:
+            if value < str(1000):
                 warnings_.warn('Value "%(value)s" does not match xsd minInclusive restriction on allowed_magnification' % {"value" : value} )
             if value > 500000:
                 warnings_.warn('Value "%(value)s" does not match xsd maxInclusive restriction on allowed_magnification' % {"value" : value} )
@@ -25953,7 +25953,7 @@ class tilt_listType(GeneratedsSuper):
     def validate_angleType29(self, value):
         # Validate type angleType29, a restriction on xs:float.
         if value is not None and Validate_simpletypes_:
-            if value < -70:
+            if value < str(-70):
                 warnings_.warn('Value "%(value)s" does not match xsd minInclusive restriction on angleType29' % {"value" : value} )
             if value > 70:
                 warnings_.warn('Value "%(value)s" does not match xsd maxInclusive restriction on angleType29' % {"value" : value} )
