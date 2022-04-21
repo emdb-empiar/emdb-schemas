@@ -12,6 +12,5 @@ setup(
     author='sanja',
     author_email='sanja@ebi.ac.ik',
     description='EMDB schema files',
-    zip_safe=False,
-    include_package_data=True
+    zip_safe=False
 )
