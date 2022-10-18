@@ -216,7 +216,7 @@
          function selectTOCGroupBy(id, isChunked, indexFileLocation, indexFileNamespace, indexFileComponent){
 
             if (!isChunked) {
-             var selectIds = ['toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type'];
+             var selectIds = new Array('toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type');
              // Make all the tabs invisible.
                for (i = 0; i < 3; i++){
                   var tab = getElementObject(selectIds[i]);
@@ -252,6 +252,44 @@
                <div class="level2">
                   <p><input id="button_gr_emdb.xsd" type="image" value="-" src="img/btM.gif" onclick="switchState('gr_emdb.xsd');" class="control" /><span class="indexGroupTitle">emdb.xsd</span></p>
                   <div id="gr_emdb.xsd" style="display:block">
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft"></td>
+                              <td class="rt_lineTop"></td>
+                              <td class="rt_cornerTopRight"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft"></td>
+                              <td class="rt_content">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup"><input id="button_gr_emdb.xsdMain_schema" type="image" value="-" src="img/btM.gif" onclick="switchState('gr_emdb.xsdMain_schema');" class="control" /></td>
+                                          <td class="componentGroup">
+                                             <div class="componentGroupTitle">Main Schema</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup"></td>
+                                          <td class="componentGroup">
+                                             <div id="gr_emdb.xsdMain_schema" class="componentGroup" style="display:block">
+                                                <div><b><a href="emdb_xsd.html#emdb.xsd" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">emdb.xsd</a></b></div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft"></td>
+                              <td class="rt_lineBottom"></td>
+                              <td class="rt_cornerBottomRight"></td>
+                           </tr>
+                        </table>
+                     </div>
                      <div class="horizontalLayout">
                         <table class="rt">
                            <tr>
