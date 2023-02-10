@@ -1,21 +1,18 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-
-# Generated Fri Feb 10 15:23:06 2023 by generateDS.py version 2.29.5.
+#
+# Generated Fri Feb 10 16:54:41 2023 by generateDS.py version 2.29.5.
 # Python 2.7.15 | packaged by conda-forge | (default, Mar  5 2020, 14:58:04)  [GCC Clang 9.0.1 ]
-
 #
 # Command line options:
 #   ('--root-element', 'emd')
 #   ('-f', '')
 #   ('-o', 'emdb-schemas/emdb_schemas/v3/v3_0_3_0/emdb.py')
-
 #   ('--no-warnings', '')
 #   ('--external-encoding', 'utf-8')
 #
 # Command line arguments:
-
 #   emdb-schemas/emdb_schemas/v3/v3_0_3_0/emdb.xsd
 #
 # Command line:
@@ -742,7 +739,6 @@ def _cast(typ, value):
 class entry_type(GeneratedsSuper):
     subclass = None
     superclass = None
-
     def __init__(self, emdb_id=None, version='3.0.3.0', admin=None, crossreferences=None, sample=None, structure_determination_list=None, map=None, interpretation=None, validation=None):
         self.original_tagname_ = None
         self.emdb_id = _cast(None, emdb_id)
