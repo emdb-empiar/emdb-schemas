@@ -27,4 +27,8 @@ The format of the information given is:
 3.0.2.7: Created new type "author_ORCID_type" for storing ORCID; Changed "author" in "author_list" element's type to "author_ORCID_type"; Changed "author_order_type" base type to "author_ORCID_type"
 3.0.2.8: (1) Added DIRECT ELECTRON APOLLO (4k x 4k) in allowed_film_or_detector_model; (2) changed minimum value from 5 to 3 in allowed_focus_ion_voltage
 3.0.2.9: (1) Changed allowed_focus_ion_voltage (range is now 0.1 to 50); (2) changed allowed_defocus_max (maxInclusive value="50")
+<<<<<<< HEAD
 3.0.3.0: Added Center for Structural Biology of Infectious Diseases (CSBID)
+=======
+3.0.2.10: Allow 1st, 2nd, 3rd and 4th in the author names
+>>>>>>> e2a434d3267fe374f61babc65f06e15938f27fdb
