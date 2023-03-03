@@ -29,3 +29,5 @@ The format of the information given is:
 3.0.2.9: (1) Changed allowed_focus_ion_voltage (range is now 0.1 to 50); (2) changed allowed_defocus_max (maxInclusive value="50")
 3.0.2.10: Allow 1st, 2nd, 3rd and 4th in the author names
 3.0.2.11: Added Center for Structural Biology of Infectious Diseases (CSBID)
+3.0.3.0: Dictionary change. Five new items to em_3d_fitting_list category which will eventually replace the current three items. (1) accession_code (2) chain_is (3) residue_range (4) source_name (5) type to replace (1) access_code (2)pdbe_chain_id (3)pdb_chain_
+residue_range.
