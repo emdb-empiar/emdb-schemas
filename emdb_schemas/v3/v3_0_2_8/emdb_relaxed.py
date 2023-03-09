@@ -2,24 +2,24 @@
 # -*- coding: utf-8 -*-
 
 #
-# Generated Thu Mar  2 09:56:42 2023 by generateDS.py version 2.29.5.
-# Python 2.7.15 | packaged by conda-forge | (default, Mar  5 2020, 14:58:04)  [GCC Clang 9.0.1 ]
+# Generated Fri Aug 19 10:42:09 2022 by generateDS.py version 2.29.5.
+# Python 3.7.6 (default, Jan  8 2020, 13:42:34)  [Clang 4.0.1 (tags/RELEASE_401/final)]
 #
 # Command line options:
 #   ('--root-element', 'emd')
 #   ('-f', '')
-#   ('-o', 'emdb-schemas/emdb_schemas/v3/v3_0_2_8/emdb_relaxed.py')
+#   ('-o', '/Users/sanja/IdeaProjects/emdb_schemas/emdb_schemas/v3/v3_0_2_8/emdb_relaxed.py')
 #   ('--no-warnings', '')
 #   ('--external-encoding', 'utf-8')
 #
 # Command line arguments:
-#   emdb-schemas/emdb_schemas/v3/v3_0_2_8/emdb_relaxed.xsd
+#   /Users/sanja/IdeaProjects/emdb_schemas/emdb_schemas/v3/v3_0_2_8/emdb_relaxed.xsd
 #
 # Command line:
-#   emdb_config/emdb_config/modified_generateDS/generateDS.py --root-element="emd" -f -o "emdb-schemas/emdb_schemas/v3/v3_0_2_8/emdb_relaxed.py" --no-warnings --external-encoding="utf-8" emdb-schemas/emdb_schemas/v3/v3_0_2_8/emdb_relaxed.xsd
+#   /Users/sanja/Documents/modified_generateDS-2.29.5/generateDS.py --root-element="emd" -f -o "/Users/sanja/IdeaProjects/emdb_schemas/emdb_schemas/v3/v3_0_2_8/emdb_relaxed.py" --no-warnings --external-encoding="utf-8" /Users/sanja/IdeaProjects/emdb_schemas/emdb_schemas/v3/v3_0_2_8/emdb_relaxed.xsd
 #
 # Current working directory (os.getcwd()):
-#   IdeaProjects
+#   emdb_schemas
 #
 
 import sys
@@ -2577,7 +2577,7 @@ class journal_citation(GeneratedsSuper):
     def validate_yearType(self, value):
         # Validate type yearType, a restriction on xs:gYear.
         if value is not None and Validate_simpletypes_:
-            if value < str(1900):
+            if value < 1900:
                 warnings_.warn('Value "%(value)s" does not match xsd minInclusive restriction on yearType' % {"value" : value} )
     def hasContent_(self):
         if (
@@ -2857,7 +2857,7 @@ class non_journal_citation(GeneratedsSuper):
     def validate_yearType2(self, value):
         # Validate type yearType2, a restriction on xs:gYear.
         if value is not None and Validate_simpletypes_:
-            if value < str(1900):
+            if value < 1900:
                 warnings_.warn('Value "%(value)s" does not match xsd minInclusive restriction on yearType2' % {"value" : value} )
     def hasContent_(self):
         if (
