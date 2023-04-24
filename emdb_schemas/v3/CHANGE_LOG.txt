@@ -32,3 +32,4 @@ The format of the information given is:
 3.0.3.0: Dictionary change. Five new items to em_3d_fitting_list category which will eventually replace the current three items. (1) accession_code (2) chain_is (3) residue_range (4) source_name (5) type to replace (1) access_code (2)pdbe_chain_id (3)pdb_chain_
 residue_range.
 3.0.3.1: Changed from mandatory to optional both elements in the startup_model (pdb_model.pdb_id and orthogonal_tilt.number_images).
+3.0.3.2: Added TFS FALCON 4i (4k x 4x) to the element film_or_detector_model
