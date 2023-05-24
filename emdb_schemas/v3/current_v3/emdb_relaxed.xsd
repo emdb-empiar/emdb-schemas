@@ -24,7 +24,7 @@
             </xs:element>
         </xs:sequence>
         <xs:attribute name="emdb_id" type="emdb_id_type" use="required" />
-        <xs:attribute default="3.0.4.0" name="version" type="xs:token" />
+        <xs:attribute default="3.0.4.2" name="version" type="xs:token" />
         
     </xs:complexType>
     <xs:complexType name="admin_type">
@@ -2499,6 +2499,32 @@
         <xs:sequence>
             <xs:element minOccurs="0" name="name" type="xs:token" />
             <xs:element minOccurs="0" name="version" type="xs:token" />
+            <xs:element minOccurs="0" name="category">
+                <xs:simpleType>
+                    <xs:restriction base="xs:token">
+                        <xs:enumeration value="CLASSIFICATION" />
+                        <xs:enumeration value="CRYSTALLOGRAPHY MERGING" />
+                        <xs:enumeration value="CTF CORRECTION" />
+                        <xs:enumeration value="DIFFRACTION INDEXING" />
+                        <xs:enumeration value="EWALD SPHERE CORRECTION" />
+                        <xs:enumeration value="FINAL EULER ASSIGNMENT" />
+                        <xs:enumeration value="IMAGE ACQUISITION" />
+                        <xs:enumeration value="INITIAL EULER ASSIGNMENT" />
+                        <xs:enumeration value="LATTICE DISTORTION CORRECTION" />
+                        <xs:enumeration value="LAYERLINE INDEXING" />
+                        <xs:enumeration value="MASKING" />
+                        <xs:enumeration value="MODEL FITTING" />
+                        <xs:enumeration value="MODEL REFINEMENT" />
+                        <xs:enumeration value="MOLECULAR REPLACEMENT" />
+                        <xs:enumeration value="OTHER" />
+                        <xs:enumeration value="PARTICLE SELECTION" />
+                        <xs:enumeration value="RECONSTRUCTION" />
+                        <xs:enumeration value="SERIES ALIGNMENT" />
+                        <xs:enumeration value="SYMMETRY DETERMINATION" />
+                        <xs:enumeration value="VOLUME SELECTION" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
             <xs:element minOccurs="0" name="processing_details" type="xs:string" />
         </xs:sequence>
     </xs:complexType>
