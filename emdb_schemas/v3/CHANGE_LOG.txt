@@ -35,3 +35,4 @@ residue_range.
 3.0.3.2: Added TFS FALCON 4i (4k x 4x) to the element film_or_detector_model
 3.0.3.3: Changed TFS FALCON 4i (4k x 4k) from TFS FALCON 4i (4k x 4x) in emdb-schema
 3.0.4.0: Supports also the extended PDB ids (example: pdb_00001abc)
+3.0.5.0: Added an element (other_db_list) in the crossreferences_type
