@@ -37,3 +37,4 @@ residue_range.
 3.0.4.0: Supports also the extended PDB ids (example: pdb_00001abc)
 3.0.5.0: Added an element <other_db_list> in the crossreferences_type
 3.0.6.0: Added an element <mask_list> in <interpretation>
+3.0.7.0: Attribute synthetically_produced and element details are added to base_source_type
