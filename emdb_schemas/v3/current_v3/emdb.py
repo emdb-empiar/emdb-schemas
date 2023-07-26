@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 #
-# Generated Mon Jul 24 14:41:14 2023 by generateDS.py version 2.41.5.
+# Generated Wed Jul 26 14:19:12 2023 by generateDS.py version 2.41.5.
 # Python 3.9.5 (default, May 18 2021, 12:31:01)  [Clang 10.0.0 ]
 #
 # Command line options:
@@ -7118,6 +7118,193 @@ class complex_source_type(base_source_type):
 # end class complex_source_type
 
 
+class protein_nucleic_acid_source_type(base_source_type):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = base_source_type
+    def __init__(self, database=None, synthetically_produced=None, organism=None, strain=None, synonym_organism=None, details=None, organ=None, tissue=None, cell=None, organelle=None, cellular_location=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = None
+        super(globals().get("protein_nucleic_acid_source_type"), self).__init__(database, synthetically_produced, organism, strain, synonym_organism, details,  **kwargs_)
+        self.organ = organ
+        self.organ_nsprefix_ = None
+        self.tissue = tissue
+        self.tissue_nsprefix_ = None
+        self.cell = cell
+        self.cell_nsprefix_ = None
+        self.organelle = organelle
+        self.organelle_nsprefix_ = None
+        self.cellular_location = cellular_location
+        self.cellular_location_nsprefix_ = None
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, protein_nucleic_acid_source_type)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if protein_nucleic_acid_source_type.subclass:
+            return protein_nucleic_acid_source_type.subclass(*args_, **kwargs_)
+        else:
+            return protein_nucleic_acid_source_type(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_organ(self):
+        return self.organ
+    def set_organ(self, organ):
+        self.organ = organ
+    def get_tissue(self):
+        return self.tissue
+    def set_tissue(self, tissue):
+        self.tissue = tissue
+    def get_cell(self):
+        return self.cell
+    def set_cell(self, cell):
+        self.cell = cell
+    def get_organelle(self):
+        return self.organelle
+    def set_organelle(self, organelle):
+        self.organelle = organelle
+    def get_cellular_location(self):
+        return self.cellular_location
+    def set_cellular_location(self, cellular_location):
+        self.cellular_location = cellular_location
+    def has__content(self):
+        if (
+            self.organ is not None or
+            self.tissue is not None or
+            self.cell is not None or
+            self.organelle is not None or
+            self.cellular_location is not None or
+            super(protein_nucleic_acid_source_type, self).has__content()
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='protein_nucleic_acid_source_type', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('protein_nucleic_acid_source_type')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'protein_nucleic_acid_source_type':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='protein_nucleic_acid_source_type')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='protein_nucleic_acid_source_type', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='protein_nucleic_acid_source_type'):
+        super(protein_nucleic_acid_source_type, self)._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='protein_nucleic_acid_source_type')
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='protein_nucleic_acid_source_type', fromsubclass_=False, pretty_print=True):
+        super(protein_nucleic_acid_source_type, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.organ is not None:
+            namespaceprefix_ = self.organ_nsprefix_ + ':' if (UseCapturedNS_ and self.organ_nsprefix_) else ''
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%sorgan>%s</%sorgan>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.organ), input_name='organ')), namespaceprefix_ , eol_))
+        if self.tissue is not None:
+            namespaceprefix_ = self.tissue_nsprefix_ + ':' if (UseCapturedNS_ and self.tissue_nsprefix_) else ''
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%stissue>%s</%stissue>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.tissue), input_name='tissue')), namespaceprefix_ , eol_))
+        if self.cell is not None:
+            namespaceprefix_ = self.cell_nsprefix_ + ':' if (UseCapturedNS_ and self.cell_nsprefix_) else ''
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%scell>%s</%scell>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.cell), input_name='cell')), namespaceprefix_ , eol_))
+        if self.organelle is not None:
+            namespaceprefix_ = self.organelle_nsprefix_ + ':' if (UseCapturedNS_ and self.organelle_nsprefix_) else ''
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%sorganelle>%s</%sorganelle>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.organelle), input_name='organelle')), namespaceprefix_ , eol_))
+        if self.cellular_location is not None:
+            namespaceprefix_ = self.cellular_location_nsprefix_ + ':' if (UseCapturedNS_ and self.cellular_location_nsprefix_) else ''
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%scellular_location>%s</%scellular_location>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.cellular_location), input_name='cellular_location')), namespaceprefix_ , eol_))
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        super(protein_nucleic_acid_source_type, self)._buildAttributes(node, attrs, already_processed)
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'organ':
+            value_ = child_.text
+            if value_:
+                value_ = re_.sub(String_cleanup_pat_, " ", value_).strip()
+            else:
+                value_ = ""
+            value_ = self.gds_parse_string(value_, node, 'organ')
+            value_ = self.gds_validate_string(value_, node, 'organ')
+            self.organ = value_
+            self.organ_nsprefix_ = child_.prefix
+        elif nodeName_ == 'tissue':
+            value_ = child_.text
+            if value_:
+                value_ = re_.sub(String_cleanup_pat_, " ", value_).strip()
+            else:
+                value_ = ""
+            value_ = self.gds_parse_string(value_, node, 'tissue')
+            value_ = self.gds_validate_string(value_, node, 'tissue')
+            self.tissue = value_
+            self.tissue_nsprefix_ = child_.prefix
+        elif nodeName_ == 'cell':
+            value_ = child_.text
+            if value_:
+                value_ = re_.sub(String_cleanup_pat_, " ", value_).strip()
+            else:
+                value_ = ""
+            value_ = self.gds_parse_string(value_, node, 'cell')
+            value_ = self.gds_validate_string(value_, node, 'cell')
+            self.cell = value_
+            self.cell_nsprefix_ = child_.prefix
+        elif nodeName_ == 'organelle':
+            value_ = child_.text
+            if value_:
+                value_ = re_.sub(String_cleanup_pat_, " ", value_).strip()
+            else:
+                value_ = ""
+            value_ = self.gds_parse_string(value_, node, 'organelle')
+            value_ = self.gds_validate_string(value_, node, 'organelle')
+            self.organelle = value_
+            self.organelle_nsprefix_ = child_.prefix
+        elif nodeName_ == 'cellular_location':
+            value_ = child_.text
+            if value_:
+                value_ = re_.sub(String_cleanup_pat_, " ", value_).strip()
+            else:
+                value_ = ""
+            value_ = self.gds_parse_string(value_, node, 'cellular_location')
+            value_ = self.gds_validate_string(value_, node, 'cellular_location')
+            self.cellular_location = value_
+            self.cellular_location_nsprefix_ = child_.prefix
+        super(protein_nucleic_acid_source_type, self)._buildChildren(child_, node, nodeName_, True)
+# end class protein_nucleic_acid_source_type
+
+
 class recombinant_source_type(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
     subclass = None
@@ -7614,12 +7801,12 @@ class protein_nucleic_acid_supramolecule_type(base_supramolecule_type):
         super(protein_nucleic_acid_supramolecule_type, self)._buildAttributes(node, attrs, already_processed)
     def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
         if nodeName_ == 'natural_source':
-            obj_ = complex_source_type.factory(parent_object_=self)
+            obj_ = protein_nucleic_acid_source_type.factory(parent_object_=self)
             obj_.build(child_, gds_collector_=gds_collector_)
             self.natural_source.append(obj_)
             obj_.original_tagname_ = 'natural_source'
         elif nodeName_ == 'synthetic_source':
-            obj_ = complex_source_type.factory(parent_object_=self)
+            obj_ = protein_nucleic_acid_source_type.factory(parent_object_=self)
             obj_.build(child_, gds_collector_=gds_collector_)
             self.synthetic_source.append(obj_)
             obj_.original_tagname_ = 'synthetic_source'
@@ -45026,6 +45213,7 @@ __all__ = [
     "pressureType",
     "primary_citationType",
     "projection_matching_processingType",
+    "protein_nucleic_acid_source_type",
     "protein_nucleic_acid_supramolecule_type",
     "protein_or_peptide_macromolecule_type",
     "radiusType",

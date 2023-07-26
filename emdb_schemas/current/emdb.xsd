@@ -841,6 +841,19 @@
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
+    <xs:complexType name="protein_nucleic_acid_source_type">
+        <xs:complexContent>
+            <xs:extension base="base_source_type">
+                <xs:sequence>
+                    <xs:element name="organ" type="xs:token" minOccurs="0"/>
+                    <xs:element name="tissue" type="xs:token" minOccurs="0"/>
+                    <xs:element name="cell" type="xs:token" minOccurs="0"/>
+                    <xs:element name="organelle" type="xs:token" minOccurs="0"/>
+                    <xs:element name="cellular_location" type="xs:token" minOccurs="0"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
     <xs:complexType name="recombinant_source_type">
         <xs:sequence>
             <xs:element name="recombinant_organism" type="organism_type"/>
@@ -906,10 +919,10 @@
         <xs:complexContent>
             <xs:extension base="base_supramolecule_type">
                 <xs:sequence>
-                    <xs:element name="natural_source" type="complex_source_type" minOccurs="0"
-                        maxOccurs="unbounded"/>
-                    <xs:element name="synthetic_source" type="complex_source_type" minOccurs="0"
-                        maxOccurs="unbounded"/>
+                    <xs:element name="natural_source" type="protein_nucleic_acid_source_type"
+                        minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element name="synthetic_source" type="protein_nucleic_acid_source_type"
+                        minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element name="recombinant_expression" type="recombinant_source_type"
                         minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element name="molecular_weight" type="molecular_weight_type" minOccurs="0"/>
