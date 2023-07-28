@@ -428,7 +428,6 @@
             </xs:extension>
         </xs:simpleContent>
     </xs:complexType>
-
     <xs:complexType name="crossreferences_type">
         <xs:sequence>
             <xs:element name="citation_list">

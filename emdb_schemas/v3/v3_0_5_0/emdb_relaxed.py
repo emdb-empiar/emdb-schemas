@@ -13,7 +13,7 @@
 #   ('--external-encoding', 'utf-8')
 #
 # Command line arguments:
-#   emdb-schemas/emdb_schemas/v3/v3_0_5_0/emdb_relaxed.xsd
+#   emdb-schemas/emdb_schemas/v3/v3_0_5_0/emdb_relaxed.xsd 
 #
 # Command line:
 #   /Users/amudha/project/generateDS-2.41.5/generateDS.py --root-element="emd" -f -o "emdb-schemas/emdb_schemas/v3/v3_0_5_0/emdb_relaxed.py" --no-warnings --external-encoding="utf-8" emdb-schemas/emdb_schemas/v3/v3_0_5_0/emdb_relaxed.xsd

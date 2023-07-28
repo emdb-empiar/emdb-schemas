@@ -25,7 +25,7 @@
             </xs:element>
         </xs:sequence>
         <xs:attribute name="emdb_id" type="emdb_id_type" use="required"/>
-        <xs:attribute name="version" type="xs:token" default="3.0.5.0"/>
+        <xs:attribute name="version" type="xs:token" default="3.0.7.2"/>
         <!-- <xs:attribute name="composite_structure" type="xs:boolean"/> -->
     </xs:complexType>
     <xs:complexType name="admin_type">
@@ -791,6 +791,7 @@
             <xs:element name="organism" type="organism_type"/>
             <xs:element name="strain" type="xs:token" minOccurs="0"/>
             <xs:element name="synonym_organism" type="xs:token" minOccurs="0"/>
+            <xs:element name="details" type="xs:string" minOccurs="0"/>
         </xs:sequence>
         <xs:attribute name="database">
             <xs:simpleType>
@@ -799,6 +800,7 @@
                 </xs:restriction>
             </xs:simpleType>
         </xs:attribute>
+        <xs:attribute name="synthetically_produced" type="xs:boolean"/>
     </xs:complexType>
     <xs:complexType name="organism_type">
         <xs:simpleContent>
@@ -2164,6 +2166,7 @@
                         <xs:enumeration value="JEOL 1200EXII"/>
                         <xs:enumeration value="JEOL 1230"/>
                         <xs:enumeration value="JEOL 1400"/>
+                        <xs:enumeration value="JEOL 1400/HR + YPS FEG"/>
                         <xs:enumeration value="JEOL 2000EX"/>
                         <xs:enumeration value="JEOL 2000EXII"/>
                         <xs:enumeration value="JEOL 2010"/>
@@ -2664,6 +2667,7 @@
     <xs:simpleType name="allowed_film_or_detector_model">
         <xs:restriction base="xs:token">
             <xs:enumeration value="AGFA SCIENTA FILM"/>
+            <xs:enumeration value="DECTRIS SINGLA (1k x 1k)"/>
             <xs:enumeration value="DIRECT ELECTRON APOLLO (4k x 4k)"/>
             <xs:enumeration value="DIRECT ELECTRON DE-10 (5k x 4k)"/>
             <xs:enumeration value="DIRECT ELECTRON DE-12 (4k x 3k)"/>
@@ -3990,6 +3994,13 @@
                 </xs:complexType>
             </xs:element>
             -->
+            <xs:element minOccurs="0" name="mask_list">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" name="mask" type="map_type"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="modelling_type">
