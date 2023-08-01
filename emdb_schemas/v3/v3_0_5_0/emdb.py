@@ -2,21 +2,21 @@
 # -*- coding: utf-8 -*-
 
 #
-# Generated Tue Aug  1 11:24:30 2023 by generateDS.py version 2.41.5.
+# Generated Thu Jun 29 17:57:55 2023 by generateDS.py version 2.41.5.
 # Python 3.9.5 (default, May 18 2021, 12:31:01)  [Clang 10.0.0 ]
 #
 # Command line options:
 #   ('--root-element', 'emd')
 #   ('-f', '')
-#   ('-o', 'emdb-schemas/emdb_schemas/v3/v3_0_8_0/emdb.py')
+#   ('-o', 'emdb-schemas/emdb_schemas/v3/v3_0_5_0/emdb.py')
 #   ('--no-warnings', '')
 #   ('--external-encoding', 'utf-8')
 #
 # Command line arguments:
-#   emdb-schemas/emdb_schemas/v3/v3_0_8_0/emdb.xsd
+#   emdb-schemas/emdb_schemas/v3/v3_0_5_0/emdb.xsd 
 #
 # Command line:
-#   /Users/amudha/project/generateDS-2.41.5/generateDS.py --root-element="emd" -f -o "emdb-schemas/emdb_schemas/v3/v3_0_8_0/emdb.py" --no-warnings --external-encoding="utf-8" emdb-schemas/emdb_schemas/v3/v3_0_8_0/emdb.xsd
+#   /Users/amudha/project/generateDS-2.41.5/generateDS.py --root-element="emd" -f -o "emdb-schemas/emdb_schemas/v3/v3_0_5_0/emdb.py" --no-warnings --external-encoding="utf-8" emdb-schemas/emdb_schemas/v3/v3_0_5_0/emdb.xsd
 #
 # Current working directory (os.getcwd()):
 #   IdeaProjects
@@ -1020,7 +1020,6 @@ class aggregation_stateType(str, Enum):
 
 class allowed_film_or_detector_model(str, Enum):
     AGFASCIENTAFILM='AGFA SCIENTA FILM'
-    DECTRISSINGLA_1_KX_1_K='DECTRIS SINGLA (1k x 1k)'
     DIRECTELECTRONAPOLLO_4_KX_4_K='DIRECT ELECTRON APOLLO (4k x 4k)'
     DIRECTELECTRONDE_10_5_KX_4_K='DIRECT ELECTRON DE-10 (5k x 4k)'
     DIRECTELECTRONDE_12_4_KX_3_K='DIRECT ELECTRON DE-12 (4k x 3k)'
@@ -1412,7 +1411,6 @@ class microscopeType(str, Enum):
     JEOL_1200_EXII='JEOL 1200EXII'
     JEOL_1230='JEOL 1230'
     JEOL_1400='JEOL 1400'
-    JEOL_1400HRYPSFEG='JEOL 1400/HR + YPS FEG'
     JEOL_2000_EX='JEOL 2000EX'
     JEOL_2000_EXII='JEOL 2000EXII'
     JEOL_2010='JEOL 2010'
@@ -1765,7 +1763,7 @@ class entry_type(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
     subclass = None
     superclass = None
-    def __init__(self, emdb_id=None, version='3.0.8.0', admin=None, crossreferences=None, sample=None, structure_determination_list=None, map=None, interpretation=None, validation=None, gds_collector_=None, **kwargs_):
+    def __init__(self, emdb_id=None, version='3.0.5.0', admin=None, crossreferences=None, sample=None, structure_determination_list=None, map=None, interpretation=None, validation=None, gds_collector_=None, **kwargs_):
         self.gds_collector_ = gds_collector_
         self.gds_elementtree_node_ = None
         self.original_tagname_ = None
@@ -1891,7 +1889,7 @@ class entry_type(GeneratedsSuper):
         if self.emdb_id is not None and 'emdb_id' not in already_processed:
             already_processed.add('emdb_id')
             outfile.write(' emdb_id=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.emdb_id), input_name='emdb_id')), ))
-        if self.version != "3.0.8.0" and 'version' not in already_processed:
+        if self.version != "3.0.5.0" and 'version' not in already_processed:
             already_processed.add('version')
             outfile.write(' version=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.version), input_name='version')), ))
     def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='entry_type', fromsubclass_=False, pretty_print=True):
@@ -6429,7 +6427,7 @@ class base_source_type(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
     subclass = None
     superclass = None
-    def __init__(self, database=None, synthetically_produced=None, organism=None, strain=None, synonym_organism=None, details=None, extensiontype_=None, gds_collector_=None, **kwargs_):
+    def __init__(self, database=None, organism=None, strain=None, synonym_organism=None, extensiontype_=None, gds_collector_=None, **kwargs_):
         self.gds_collector_ = gds_collector_
         self.gds_elementtree_node_ = None
         self.original_tagname_ = None
@@ -6437,16 +6435,12 @@ class base_source_type(GeneratedsSuper):
         self.ns_prefix_ = None
         self.database = _cast(None, database)
         self.database_nsprefix_ = None
-        self.synthetically_produced = _cast(bool, synthetically_produced)
-        self.synthetically_produced_nsprefix_ = None
         self.organism = organism
         self.organism_nsprefix_ = None
         self.strain = strain
         self.strain_nsprefix_ = None
         self.synonym_organism = synonym_organism
         self.synonym_organism_nsprefix_ = None
-        self.details = details
-        self.details_nsprefix_ = None
         self.extensiontype_ = extensiontype_
     def factory(*args_, **kwargs_):
         if CurrentSubclassModule_ is not None:
@@ -6475,18 +6469,10 @@ class base_source_type(GeneratedsSuper):
         return self.synonym_organism
     def set_synonym_organism(self, synonym_organism):
         self.synonym_organism = synonym_organism
-    def get_details(self):
-        return self.details
-    def set_details(self, details):
-        self.details = details
     def get_database(self):
         return self.database
     def set_database(self, database):
         self.database = database
-    def get_synthetically_produced(self):
-        return self.synthetically_produced
-    def set_synthetically_produced(self, synthetically_produced):
-        self.synthetically_produced = synthetically_produced
     def get_extensiontype_(self): return self.extensiontype_
     def set_extensiontype_(self, extensiontype_): self.extensiontype_ = extensiontype_
     def validate_databaseType(self, value):
@@ -6506,8 +6492,7 @@ class base_source_type(GeneratedsSuper):
         if (
             self.organism is not None or
             self.strain is not None or
-            self.synonym_organism is not None or
-            self.details is not None
+            self.synonym_organism is not None
         ):
             return True
         else:
@@ -6539,9 +6524,6 @@ class base_source_type(GeneratedsSuper):
         if self.database is not None and 'database' not in already_processed:
             already_processed.add('database')
             outfile.write(' database=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.database), input_name='database')), ))
-        if self.synthetically_produced is not None and 'synthetically_produced' not in already_processed:
-            already_processed.add('synthetically_produced')
-            outfile.write(' synthetically_produced="%s"' % self.gds_format_boolean(self.synthetically_produced, input_name='synthetically_produced'))
         if self.extensiontype_ is not None and 'xsi:type' not in already_processed:
             already_processed.add('xsi:type')
             outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
@@ -6566,10 +6548,6 @@ class base_source_type(GeneratedsSuper):
             namespaceprefix_ = self.synonym_organism_nsprefix_ + ':' if (UseCapturedNS_ and self.synonym_organism_nsprefix_) else ''
             showIndent(outfile, level, pretty_print)
             outfile.write('<%ssynonym_organism>%s</%ssynonym_organism>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.synonym_organism), input_name='synonym_organism')), namespaceprefix_ , eol_))
-        if self.details is not None:
-            namespaceprefix_ = self.details_nsprefix_ + ':' if (UseCapturedNS_ and self.details_nsprefix_) else ''
-            showIndent(outfile, level, pretty_print)
-            outfile.write('<%sdetails>%s</%sdetails>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.details), input_name='details')), namespaceprefix_ , eol_))
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -6588,15 +6566,6 @@ class base_source_type(GeneratedsSuper):
             self.database = value
             self.database = ' '.join(self.database.split())
             self.validate_databaseType(self.database)    # validate type databaseType
-        value = find_attr_value_('synthetically_produced', node)
-        if value is not None and 'synthetically_produced' not in already_processed:
-            already_processed.add('synthetically_produced')
-            if value in ('true', '1'):
-                self.synthetically_produced = True
-            elif value in ('false', '0'):
-                self.synthetically_produced = False
-            else:
-                raise_parse_error(node, 'Bad boolean attribute')
         value = find_attr_value_('xsi:type', node)
         if value is not None and 'xsi:type' not in already_processed:
             already_processed.add('xsi:type')
@@ -6627,12 +6596,6 @@ class base_source_type(GeneratedsSuper):
             value_ = self.gds_validate_string(value_, node, 'synonym_organism')
             self.synonym_organism = value_
             self.synonym_organism_nsprefix_ = child_.prefix
-        elif nodeName_ == 'details':
-            value_ = child_.text
-            value_ = self.gds_parse_string(value_, node, 'details')
-            value_ = self.gds_validate_string(value_, node, 'details')
-            self.details = value_
-            self.details_nsprefix_ = child_.prefix
 # end class base_source_type
 
 
@@ -6935,13 +6898,13 @@ class complex_source_type(base_source_type):
     __hash__ = GeneratedsSuper.__hash__
     subclass = None
     superclass = base_source_type
-    def __init__(self, database=None, synthetically_produced=None, organism=None, strain=None, synonym_organism=None, details=None, organ=None, tissue=None, cell=None, organelle=None, cellular_location=None, gds_collector_=None, **kwargs_):
+    def __init__(self, database=None, organism=None, strain=None, synonym_organism=None, organ=None, tissue=None, cell=None, organelle=None, cellular_location=None, gds_collector_=None, **kwargs_):
         self.gds_collector_ = gds_collector_
         self.gds_elementtree_node_ = None
         self.original_tagname_ = None
         self.parent_object_ = kwargs_.get('parent_object_')
         self.ns_prefix_ = None
-        super(globals().get("complex_source_type"), self).__init__(database, synthetically_produced, organism, strain, synonym_organism, details,  **kwargs_)
+        super(globals().get("complex_source_type"), self).__init__(database, organism, strain, synonym_organism,  **kwargs_)
         self.organ = organ
         self.organ_nsprefix_ = None
         self.tissue = tissue
@@ -7614,13 +7577,13 @@ class organelle_source_type(base_source_type):
     __hash__ = GeneratedsSuper.__hash__
     subclass = None
     superclass = base_source_type
-    def __init__(self, database=None, synthetically_produced=None, organism=None, strain=None, synonym_organism=None, details=None, organ=None, tissue=None, cell=None, organelle=None, cellular_location=None, gds_collector_=None, **kwargs_):
+    def __init__(self, database=None, organism=None, strain=None, synonym_organism=None, organ=None, tissue=None, cell=None, organelle=None, cellular_location=None, gds_collector_=None, **kwargs_):
         self.gds_collector_ = gds_collector_
         self.gds_elementtree_node_ = None
         self.original_tagname_ = None
         self.parent_object_ = kwargs_.get('parent_object_')
         self.ns_prefix_ = None
-        super(globals().get("organelle_source_type"), self).__init__(database, synthetically_produced, organism, strain, synonym_organism, details,  **kwargs_)
+        super(globals().get("organelle_source_type"), self).__init__(database, organism, strain, synonym_organism,  **kwargs_)
         self.organ = organ
         self.organ_nsprefix_ = None
         self.tissue = tissue
@@ -7965,13 +7928,13 @@ class sample_source_type(base_source_type):
     __hash__ = GeneratedsSuper.__hash__
     subclass = None
     superclass = base_source_type
-    def __init__(self, database=None, synthetically_produced=None, organism=None, strain=None, synonym_organism=None, details=None, organ=None, tissue=None, cell=None, gds_collector_=None, **kwargs_):
+    def __init__(self, database=None, organism=None, strain=None, synonym_organism=None, organ=None, tissue=None, cell=None, gds_collector_=None, **kwargs_):
         self.gds_collector_ = gds_collector_
         self.gds_elementtree_node_ = None
         self.original_tagname_ = None
         self.parent_object_ = kwargs_.get('parent_object_')
         self.ns_prefix_ = None
-        super(globals().get("sample_source_type"), self).__init__(database, synthetically_produced, organism, strain, synonym_organism, details,  **kwargs_)
+        super(globals().get("sample_source_type"), self).__init__(database, organism, strain, synonym_organism,  **kwargs_)
         self.organ = organ
         self.organ_nsprefix_ = None
         self.tissue = tissue
@@ -8240,13 +8203,13 @@ class tissue_source_type(base_source_type):
     __hash__ = GeneratedsSuper.__hash__
     subclass = None
     superclass = base_source_type
-    def __init__(self, database=None, synthetically_produced=None, organism=None, strain=None, synonym_organism=None, details=None, organ=None, tissue=None, gds_collector_=None, **kwargs_):
+    def __init__(self, database=None, organism=None, strain=None, synonym_organism=None, organ=None, tissue=None, gds_collector_=None, **kwargs_):
         self.gds_collector_ = gds_collector_
         self.gds_elementtree_node_ = None
         self.original_tagname_ = None
         self.parent_object_ = kwargs_.get('parent_object_')
         self.ns_prefix_ = None
-        super(globals().get("tissue_source_type"), self).__init__(database, synthetically_produced, organism, strain, synonym_organism, details,  **kwargs_)
+        super(globals().get("tissue_source_type"), self).__init__(database, organism, strain, synonym_organism,  **kwargs_)
         self.organ = organ
         self.organ_nsprefix_ = None
         self.tissue = tissue
@@ -8851,13 +8814,13 @@ class virus_host_type(base_source_type):
     __hash__ = GeneratedsSuper.__hash__
     subclass = None
     superclass = base_source_type
-    def __init__(self, database=None, synthetically_produced=None, organism=None, strain=None, synonym_organism=None, details=None, gds_collector_=None, **kwargs_):
+    def __init__(self, database=None, organism=None, strain=None, synonym_organism=None, gds_collector_=None, **kwargs_):
         self.gds_collector_ = gds_collector_
         self.gds_elementtree_node_ = None
         self.original_tagname_ = None
         self.parent_object_ = kwargs_.get('parent_object_')
         self.ns_prefix_ = None
-        super(globals().get("virus_host_type"), self).__init__(database, synthetically_produced, organism, strain, synonym_organism, details,  **kwargs_)
+        super(globals().get("virus_host_type"), self).__init__(database, organism, strain, synonym_organism,  **kwargs_)
     def factory(*args_, **kwargs_):
         if CurrentSubclassModule_ is not None:
             subclass = getSubclassFromModule_(
@@ -9333,13 +9296,13 @@ class macromolecule_source_type(base_source_type):
     __hash__ = GeneratedsSuper.__hash__
     subclass = None
     superclass = base_source_type
-    def __init__(self, database=None, synthetically_produced=None, organism=None, strain=None, synonym_organism=None, details=None, organ=None, tissue=None, cell=None, organelle=None, cellular_location=None, gds_collector_=None, **kwargs_):
+    def __init__(self, database=None, organism=None, strain=None, synonym_organism=None, organ=None, tissue=None, cell=None, organelle=None, cellular_location=None, gds_collector_=None, **kwargs_):
         self.gds_collector_ = gds_collector_
         self.gds_elementtree_node_ = None
         self.original_tagname_ = None
         self.parent_object_ = kwargs_.get('parent_object_')
         self.ns_prefix_ = None
-        super(globals().get("macromolecule_source_type"), self).__init__(database, synthetically_produced, organism, strain, synonym_organism, details,  **kwargs_)
+        super(globals().get("macromolecule_source_type"), self).__init__(database, organism, strain, synonym_organism,  **kwargs_)
         self.organ = organ
         self.organ_nsprefix_ = None
         self.tissue = tissue
@@ -14543,7 +14506,7 @@ class base_microscopy_type(GeneratedsSuper):
                 self.gds_collector_.add_message('Value "%(value)s"%(lineno)s is not of the correct base simple type (str)' % {"value": value, "lineno": lineno, })
                 return False
             value = value
-            enumerations = ['FEI MORGAGNI', 'FEI POLARA 300', 'FEI TALOS ARCTICA', 'FEI TECNAI 10', 'FEI TECNAI 12', 'FEI TECNAI 20', 'FEI TECNAI ARCTICA', 'FEI TECNAI F20', 'FEI TECNAI F30', 'FEI TECNAI SPHERA', 'FEI TECNAI SPIRIT', 'FEI TITAN', 'FEI TITAN KRIOS', 'FEI/PHILIPS CM10', 'FEI/PHILIPS CM12', 'FEI/PHILIPS CM120T', 'FEI/PHILIPS CM200FEG', 'FEI/PHILIPS CM200FEG/SOPHIE', 'FEI/PHILIPS CM200FEG/ST', 'FEI/PHILIPS CM200FEG/UT', 'FEI/PHILIPS CM200T', 'FEI/PHILIPS CM300FEG/HE', 'FEI/PHILIPS CM300FEG/ST', 'FEI/PHILIPS CM300FEG/T', 'FEI/PHILIPS EM400', 'FEI/PHILIPS EM420', 'HITACHI EF2000', 'HITACHI H-9500SD', 'HITACHI H3000 UHVEM', 'HITACHI H7600', 'HITACHI HF2000', 'HITACHI HF3000', 'JEOL 100CX', 'JEOL 1000EES', 'JEOL 1010', 'JEOL 1200', 'JEOL 1200EX', 'JEOL 1200EXII', 'JEOL 1230', 'JEOL 1400', 'JEOL 1400/HR + YPS FEG', 'JEOL 2000EX', 'JEOL 2000EXII', 'JEOL 2010', 'JEOL 2010F', 'JEOL 2010HC', 'JEOL 2010HT', 'JEOL 2010UHR', 'JEOL 2011', 'JEOL 2100', 'JEOL 2100F', 'JEOL 2200FS', 'JEOL 2200FSC', 'JEOL 3000SFF', 'JEOL 3100FEF', 'JEOL 3100FFC', 'JEOL 3200FS', 'JEOL 3200FSC', 'JEOL 4000', 'JEOL 4000EX', 'JEOL CRYO ARM 200', 'JEOL CRYO ARM 300', 'JEOL KYOTO-3000SFF', 'TFS GLACIOS', 'TFS KRIOS', 'TFS TALOS', 'TFS TALOS L120C', 'TFS TALOS F200C', 'TFS TUNDRA', 'ZEISS LEO912', 'ZEISS LIBRA120PLUS']
+            enumerations = ['FEI MORGAGNI', 'FEI POLARA 300', 'FEI TALOS ARCTICA', 'FEI TECNAI 10', 'FEI TECNAI 12', 'FEI TECNAI 20', 'FEI TECNAI ARCTICA', 'FEI TECNAI F20', 'FEI TECNAI F30', 'FEI TECNAI SPHERA', 'FEI TECNAI SPIRIT', 'FEI TITAN', 'FEI TITAN KRIOS', 'FEI/PHILIPS CM10', 'FEI/PHILIPS CM12', 'FEI/PHILIPS CM120T', 'FEI/PHILIPS CM200FEG', 'FEI/PHILIPS CM200FEG/SOPHIE', 'FEI/PHILIPS CM200FEG/ST', 'FEI/PHILIPS CM200FEG/UT', 'FEI/PHILIPS CM200T', 'FEI/PHILIPS CM300FEG/HE', 'FEI/PHILIPS CM300FEG/ST', 'FEI/PHILIPS CM300FEG/T', 'FEI/PHILIPS EM400', 'FEI/PHILIPS EM420', 'HITACHI EF2000', 'HITACHI H-9500SD', 'HITACHI H3000 UHVEM', 'HITACHI H7600', 'HITACHI HF2000', 'HITACHI HF3000', 'JEOL 100CX', 'JEOL 1000EES', 'JEOL 1010', 'JEOL 1200', 'JEOL 1200EX', 'JEOL 1200EXII', 'JEOL 1230', 'JEOL 1400', 'JEOL 2000EX', 'JEOL 2000EXII', 'JEOL 2010', 'JEOL 2010F', 'JEOL 2010HC', 'JEOL 2010HT', 'JEOL 2010UHR', 'JEOL 2011', 'JEOL 2100', 'JEOL 2100F', 'JEOL 2200FS', 'JEOL 2200FSC', 'JEOL 3000SFF', 'JEOL 3100FEF', 'JEOL 3100FFC', 'JEOL 3200FS', 'JEOL 3200FSC', 'JEOL 4000', 'JEOL 4000EX', 'JEOL CRYO ARM 200', 'JEOL CRYO ARM 300', 'JEOL KYOTO-3000SFF', 'TFS GLACIOS', 'TFS KRIOS', 'TFS TALOS', 'TFS TALOS L120C', 'TFS TALOS F200C', 'TFS TUNDRA', 'ZEISS LEO912', 'ZEISS LIBRA120PLUS']
             if value not in enumerations:
                 lineno = self.gds_get_node_lineno_()
                 self.gds_collector_.add_message('Value "%(value)s"%(lineno)s does not match xsd enumeration restriction on microscopeType' % {"value" : encode_str_2_3(value), "lineno": lineno} )
@@ -33672,7 +33635,7 @@ class film_or_detector_modelType(GeneratedsSuper):
                 self.gds_collector_.add_message('Value "%(value)s"%(lineno)s is not of the correct base simple type (str)' % {"value": value, "lineno": lineno, })
                 return False
             value = value
-            enumerations = ['AGFA SCIENTA FILM', 'DECTRIS SINGLA (1k x 1k)', 'DIRECT ELECTRON APOLLO (4k x 4k)', 'DIRECT ELECTRON DE-10 (5k x 4k)', 'DIRECT ELECTRON DE-12 (4k x 3k)', 'DIRECT ELECTRON DE-16 (4k x 4k)', 'DIRECT ELECTRON DE-20 (5k x 3k)', 'DIRECT ELECTRON DE-64 (8k x 8k)', 'FEI CETA (4k x 4k)', 'FEI EAGLE (2k x 2k)', 'FEI EAGLE (4k x 4k)', 'FEI FALCON I (4k x 4k)', 'FEI FALCON II (4k x 4k)', 'FEI FALCON III (4k x 4k)', 'FEI FALCON IV (4k x 4k)', 'GATAN K2 (4k x 4k)', 'GATAN K2 BASE (4k x 4k)', 'GATAN K2 IS (4k x 4k)', 'GATAN K2 QUANTUM (4k x 4k)', 'GATAN K2 SUMMIT (4k x 4k)', 'GATAN K3 (6k x 4k)', 'GATAN K3 BIOQUANTUM (6k x 4k)', 'GATAN MULTISCAN', 'GATAN ORIUS SC1000 (4k x 2.7k)', 'GATAN ORIUS SC200 (2k x 2k)', 'GATAN ORIUS SC600 (2.7k x 2.7k)', 'GATAN ULTRASCAN 1000 (2k x 2k)', 'GATAN ULTRASCAN 10000 (10k x 10k)', 'GATAN ULTRASCAN 4000 (4k x 4k)', 'GENERIC CCD', 'GENERIC CCD (2k x 2k)', 'GENERIC CCD (4k x 4k)', 'GENERIC FILM', 'GENERIC GATAN', 'GENERIC GATAN (2k x 2k)', 'GENERIC GATAN (4k x 4k)', 'GENERIC IMAGE PLATES', 'GENERIC TVIPS', 'GENERIC TVIPS (2k x 2k)', 'GENERIC TVIPS (4k x 4k)', 'KODAK 4489 FILM', 'KODAK SO-163 FILM', 'OTHER', 'PROSCAN TEM-PIV (2k x 2k)', 'SIA 15C (3k x 3k)', 'TFS FALCON 4i (4k x 4k)', 'TVIPS TEMCAM-F216 (2k x 2k)', 'TVIPS TEMCAM-F224 (2k x 2k)', 'TVIPS TEMCAM-F415 (4k x 4k)', 'TVIPS TEMCAM-F416 (4k x 4k)', 'TVIPS TEMCAM-F816 (8k x 8k)']
+            enumerations = ['AGFA SCIENTA FILM', 'DIRECT ELECTRON APOLLO (4k x 4k)', 'DIRECT ELECTRON DE-10 (5k x 4k)', 'DIRECT ELECTRON DE-12 (4k x 3k)', 'DIRECT ELECTRON DE-16 (4k x 4k)', 'DIRECT ELECTRON DE-20 (5k x 3k)', 'DIRECT ELECTRON DE-64 (8k x 8k)', 'FEI CETA (4k x 4k)', 'FEI EAGLE (2k x 2k)', 'FEI EAGLE (4k x 4k)', 'FEI FALCON I (4k x 4k)', 'FEI FALCON II (4k x 4k)', 'FEI FALCON III (4k x 4k)', 'FEI FALCON IV (4k x 4k)', 'GATAN K2 (4k x 4k)', 'GATAN K2 BASE (4k x 4k)', 'GATAN K2 IS (4k x 4k)', 'GATAN K2 QUANTUM (4k x 4k)', 'GATAN K2 SUMMIT (4k x 4k)', 'GATAN K3 (6k x 4k)', 'GATAN K3 BIOQUANTUM (6k x 4k)', 'GATAN MULTISCAN', 'GATAN ORIUS SC1000 (4k x 2.7k)', 'GATAN ORIUS SC200 (2k x 2k)', 'GATAN ORIUS SC600 (2.7k x 2.7k)', 'GATAN ULTRASCAN 1000 (2k x 2k)', 'GATAN ULTRASCAN 10000 (10k x 10k)', 'GATAN ULTRASCAN 4000 (4k x 4k)', 'GENERIC CCD', 'GENERIC CCD (2k x 2k)', 'GENERIC CCD (4k x 4k)', 'GENERIC FILM', 'GENERIC GATAN', 'GENERIC GATAN (2k x 2k)', 'GENERIC GATAN (4k x 4k)', 'GENERIC IMAGE PLATES', 'GENERIC TVIPS', 'GENERIC TVIPS (2k x 2k)', 'GENERIC TVIPS (4k x 4k)', 'KODAK 4489 FILM', 'KODAK SO-163 FILM', 'OTHER', 'PROSCAN TEM-PIV (2k x 2k)', 'SIA 15C (3k x 3k)', 'TFS FALCON 4i (4k x 4k)', 'TVIPS TEMCAM-F216 (2k x 2k)', 'TVIPS TEMCAM-F224 (2k x 2k)', 'TVIPS TEMCAM-F415 (4k x 4k)', 'TVIPS TEMCAM-F416 (4k x 4k)', 'TVIPS TEMCAM-F816 (8k x 8k)']
             if value not in enumerations:
                 lineno = self.gds_get_node_lineno_()
                 self.gds_collector_.add_message('Value "%(value)s"%(lineno)s does not match xsd enumeration restriction on allowed_film_or_detector_model' % {"value" : encode_str_2_3(value), "lineno": lineno} )
@@ -44115,13 +44078,13 @@ class cell_source_type(base_source_type):
     __hash__ = GeneratedsSuper.__hash__
     subclass = None
     superclass = base_source_type
-    def __init__(self, database=None, synthetically_produced=None, organism=None, strain=None, synonym_organism=None, details=None, organ=None, tissue=None, cell=None, gds_collector_=None, **kwargs_):
+    def __init__(self, database=None, organism=None, strain=None, synonym_organism=None, organ=None, tissue=None, cell=None, gds_collector_=None, **kwargs_):
         self.gds_collector_ = gds_collector_
         self.gds_elementtree_node_ = None
         self.original_tagname_ = None
         self.parent_object_ = kwargs_.get('parent_object_')
         self.ns_prefix_ = None
-        super(globals().get("cell_source_type"), self).__init__(database, synthetically_produced, organism, strain, synonym_organism, details,  **kwargs_)
+        super(globals().get("cell_source_type"), self).__init__(database, organism, strain, synonym_organism,  **kwargs_)
         self.organ = organ
         self.organ_nsprefix_ = None
         self.tissue = tissue
