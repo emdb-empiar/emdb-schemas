@@ -24,7 +24,7 @@
             </xs:element>
         </xs:sequence>
         <xs:attribute name="emdb_id" type="emdb_id_type" use="required" />
-        <xs:attribute default="3.0.8.0" name="version" type="xs:token" />
+        <xs:attribute default="3.0.9.0" name="version" type="xs:token" />
         
     </xs:complexType>
     <xs:complexType name="admin_type">
@@ -795,6 +795,19 @@
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
+    <xs:complexType name="protein_nucleic_acid_source_type">
+        <xs:complexContent>
+            <xs:extension base="base_source_type">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="organ" type="xs:token" />
+                    <xs:element minOccurs="0" name="tissue" type="xs:token" />
+                    <xs:element minOccurs="0" name="cell" type="xs:token" />
+                    <xs:element minOccurs="0" name="organelle" type="xs:token" />
+                    <xs:element minOccurs="0" name="cellular_location" type="xs:token" />
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
     <xs:complexType name="recombinant_source_type">
         <xs:sequence>
             <xs:element minOccurs="0" name="recombinant_organism" type="organism_type" />
@@ -854,6 +867,21 @@
             <xs:maxInclusive value="1000000000.0" />
         </xs:restriction>
     </xs:simpleType>
+    <xs:element name="protein_supramolecule" substitutionGroup="supramolecule" type="protein_nucleic_acid_supramolecule_type" />
+    <xs:complexType name="protein_nucleic_acid_supramolecule_type">
+        <xs:complexContent>
+            <xs:extension base="base_supramolecule_type">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="natural_source" type="protein_nucleic_acid_source_type" />
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="synthetic_source" type="protein_nucleic_acid_source_type" />
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="recombinant_expression" type="recombinant_source_type" />
+                    <xs:element minOccurs="0" name="molecular_weight" type="molecular_weight_type" />
+                </xs:sequence>
+                <xs:attribute fixed="true" name="chimera" type="xs:boolean" />
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="nucleic_acid_supramolecule" substitutionGroup="supramolecule" type="protein_nucleic_acid_supramolecule_type" />
     <xs:element name="organelle_or_cellular_component_supramolecule" substitutionGroup="supramolecule" type="organelle_or_cellular_component_supramolecule_type" />
     <xs:complexType name="organelle_or_cellular_component_supramolecule_type">
         <xs:complexContent>
