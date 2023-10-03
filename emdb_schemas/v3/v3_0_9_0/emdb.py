@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 #
-# Generated Mon Oct  2 19:42:23 2023 by generateDS.py version 2.41.5.
+# Generated Tue Oct  3 16:35:59 2023 by generateDS.py version 2.41.5.
 # Python 3.9.5 (default, May 18 2021, 12:31:01)  [Clang 10.0.0 ]
 #
 # Command line options:
@@ -1986,12 +1986,14 @@ class admin_type(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
     subclass = None
     superclass = None
-    def __init__(self, status_history_list=None, current_status=None, sites=None, key_dates=None, obsolete_list=None, superseded_by_list=None, grant_support=None, microscopy_center=None, contact_author=None, title=None, authors_list=None, details=None, keywords=None, replace_existing_entry=None, extensiontype_=None, gds_collector_=None, **kwargs_):
+    def __init__(self, composite_map=None, status_history_list=None, current_status=None, sites=None, key_dates=None, obsolete_list=None, superseded_by_list=None, grant_support=None, microscopy_center=None, contact_author=None, title=None, authors_list=None, details=None, keywords=None, replace_existing_entry=None, extensiontype_=None, gds_collector_=None, **kwargs_):
         self.gds_collector_ = gds_collector_
         self.gds_elementtree_node_ = None
         self.original_tagname_ = None
         self.parent_object_ = kwargs_.get('parent_object_')
         self.ns_prefix_ = None
+        self.composite_map = _cast(bool, composite_map)
+        self.composite_map_nsprefix_ = None
         self.status_history_list = status_history_list
         self.status_history_list_nsprefix_ = None
         self.current_status = current_status
@@ -2101,6 +2103,10 @@ class admin_type(GeneratedsSuper):
         return self.replace_existing_entry
     def set_replace_existing_entry(self, replace_existing_entry):
         self.replace_existing_entry = replace_existing_entry
+    def get_composite_map(self):
+        return self.composite_map
+    def set_composite_map(self, composite_map):
+        self.composite_map = composite_map
     def get_extensiontype_(self): return self.extensiontype_
     def set_extensiontype_(self, extensiontype_): self.extensiontype_ = extensiontype_
     def has__content(self):
@@ -2147,6 +2153,9 @@ class admin_type(GeneratedsSuper):
         else:
             outfile.write('/>%s' % (eol_, ))
     def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='admin_type'):
+        if self.composite_map is not None and 'composite_map' not in already_processed:
+            already_processed.add('composite_map')
+            outfile.write(' composite_map="%s"' % self.gds_format_boolean(self.composite_map, input_name='composite_map'))
         if self.extensiontype_ is not None and 'xsi:type' not in already_processed:
             already_processed.add('xsi:type')
             outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
@@ -2155,7 +2164,6 @@ class admin_type(GeneratedsSuper):
                 outfile.write(' xsi:type="%s%s"' % (imported_ns_type_prefix_, self.extensiontype_))
             else:
                 outfile.write(' xsi:type="%s"' % self.extensiontype_)
-        pass
     def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='admin_type', fromsubclass_=False, pretty_print=True):
         if pretty_print:
             eol_ = '\n'
@@ -2219,6 +2227,15 @@ class admin_type(GeneratedsSuper):
             self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
         return self
     def _buildAttributes(self, node, attrs, already_processed):
+        value = find_attr_value_('composite_map', node)
+        if value is not None and 'composite_map' not in already_processed:
+            already_processed.add('composite_map')
+            if value in ('true', '1'):
+                self.composite_map = True
+            elif value in ('false', '0'):
+                self.composite_map = False
+            else:
+                raise_parse_error(node, 'Bad boolean attribute')
         value = find_attr_value_('xsi:type', node)
         if value is not None and 'xsi:type' not in already_processed:
             already_processed.add('xsi:type')
@@ -23361,15 +23378,13 @@ class adminType(admin_type):
     __hash__ = GeneratedsSuper.__hash__
     subclass = None
     superclass = admin_type
-    def __init__(self, status_history_list=None, current_status=None, sites=None, key_dates=None, obsolete_list=None, superseded_by_list=None, grant_support=None, microscopy_center=None, contact_author=None, title=None, authors_list=None, details=None, keywords=None, replace_existing_entry=None, composite_map=None, gds_collector_=None, **kwargs_):
+    def __init__(self, composite_map=None, status_history_list=None, current_status=None, sites=None, key_dates=None, obsolete_list=None, superseded_by_list=None, grant_support=None, microscopy_center=None, contact_author=None, title=None, authors_list=None, details=None, keywords=None, replace_existing_entry=None, gds_collector_=None, **kwargs_):
         self.gds_collector_ = gds_collector_
         self.gds_elementtree_node_ = None
         self.original_tagname_ = None
         self.parent_object_ = kwargs_.get('parent_object_')
         self.ns_prefix_ = None
-        super(globals().get("adminType"), self).__init__(status_history_list, current_status, sites, key_dates, obsolete_list, superseded_by_list, grant_support, microscopy_center, contact_author, title, authors_list, details, keywords, replace_existing_entry,  **kwargs_)
-        self.composite_map = _cast(bool, composite_map)
-        self.composite_map_nsprefix_ = None
+        super(globals().get("adminType"), self).__init__(composite_map, status_history_list, current_status, sites, key_dates, obsolete_list, superseded_by_list, grant_support, microscopy_center, contact_author, title, authors_list, details, keywords, replace_existing_entry,  **kwargs_)
     def factory(*args_, **kwargs_):
         if CurrentSubclassModule_ is not None:
             subclass = getSubclassFromModule_(
@@ -23385,10 +23400,6 @@ class adminType(admin_type):
         return self.ns_prefix_
     def set_ns_prefix_(self, ns_prefix):
         self.ns_prefix_ = ns_prefix
-    def get_composite_map(self):
-        return self.composite_map
-    def set_composite_map(self, composite_map):
-        self.composite_map = composite_map
     def has__content(self):
         if (
             super(adminType, self).has__content()
@@ -23421,9 +23432,6 @@ class adminType(admin_type):
             outfile.write('/>%s' % (eol_, ))
     def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='adminType'):
         super(adminType, self)._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='adminType')
-        if self.composite_map is not None and 'composite_map' not in already_processed:
-            already_processed.add('composite_map')
-            outfile.write(' composite_map="%s"' % self.gds_format_boolean(self.composite_map, input_name='composite_map'))
     def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='adminType', fromsubclass_=False, pretty_print=True):
         super(adminType, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
     def build(self, node, gds_collector_=None):
@@ -23438,15 +23446,6 @@ class adminType(admin_type):
             self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
         return self
     def _buildAttributes(self, node, attrs, already_processed):
-        value = find_attr_value_('composite_map', node)
-        if value is not None and 'composite_map' not in already_processed:
-            already_processed.add('composite_map')
-            if value in ('true', '1'):
-                self.composite_map = True
-            elif value in ('false', '0'):
-                self.composite_map = False
-            else:
-                raise_parse_error(node, 'Bad boolean attribute')
         super(adminType, self)._buildAttributes(node, attrs, already_processed)
     def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
         super(adminType, self)._buildChildren(child_, node, nodeName_, True)

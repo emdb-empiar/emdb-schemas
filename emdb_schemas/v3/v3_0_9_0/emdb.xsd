@@ -6,9 +6,7 @@
             <xs:element name="admin">
                 <xs:complexType>
                     <xs:complexContent>
-                        <xs:extension base="admin_type">
-                            <xs:attribute name="composite_map" type="xs:boolean"/>
-                        </xs:extension>
+                        <xs:extension base="admin_type"> </xs:extension>
                     </xs:complexContent>
                 </xs:complexType>
             </xs:element>
@@ -144,6 +142,7 @@
             <xs:element name="keywords" type="xs:string" minOccurs="0"/>
             <xs:element name="replace_existing_entry" type="xs:boolean" minOccurs="0"/>
         </xs:sequence>
+        <xs:attribute name="composite_map" type="xs:boolean"/>
     </xs:complexType>
     <xs:complexType name="version_list_type">
         <xs:sequence>
