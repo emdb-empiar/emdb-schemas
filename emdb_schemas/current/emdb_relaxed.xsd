@@ -3,13 +3,7 @@
     <xs:element name="emd" type="entry_type" />
     <xs:complexType name="entry_type">
         <xs:sequence>
-            <xs:element name="admin">
-                <xs:complexType>
-                    <xs:complexContent>
-                        <xs:extension base="admin_type"> </xs:extension>
-                    </xs:complexContent>
-                </xs:complexType>
-            </xs:element>
+            <xs:element name="admin" type="admin_type" />
             <xs:element name="crossreferences" type="crossreferences_type" />
             <xs:element name="sample" type="sample_type" />
             <xs:element name="structure_determination_list">
