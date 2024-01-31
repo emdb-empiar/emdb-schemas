@@ -19,4 +19,4 @@ jobs:
           ssh ${{ secrets.BSUB_SERVER }} "bsub -K -q datamover 'rsync -av ${{ secrets.DEPLOY_PATH }}/emdb_schemas/ ${{ secrets.FTP_PATH }}/'"
       - name: Send e-mail
         run:
-          echo "The AddedAnnotations repository was pulled and moved to production." | mail -s "[emdb-emicss] addedAnnotations has updated" pdb_em@ebi.ac.uk
+          echo "The EMDB schemas repository was pulled and moved to production." | mail -s "[emdb-schema] EMDB schema has updated" pdb_em@ebi.ac.uk
