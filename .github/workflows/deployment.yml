@@ -1,0 +1,22 @@
+on:
+  pull_request:
+    branches:
+      - master
+    types: [closed]
+
+jobs:
+  deployment:
+    if: github.event.pull_request.merged == true
+    runs-on:
+      - self-hosted
+    steps:
+      - name: Pull repository
+        run:
+          ssh ${{ secrets.BSUB_SERVER }} "git -C ${{ secrets.DEPLOY_PATH }}/ pull"
+      - name: Deploy
+        run: |
+          ssh ${{ secrets.BSUB_SERVER }} "bsub -K -q datamover 'cd ${{ secrets.DEPLOY_PATH }} && find . -name \"*.xsd\" -exec cp --parents {} ${{ secrets.FTP_PATH2 }}/ \\;'"
+          ssh ${{ secrets.BSUB_SERVER }} "bsub -K -q datamover 'rsync -av ${{ secrets.DEPLOY_PATH }}/emdb_schemas/ ${{ secrets.FTP_PATH }}/'"
+      - name: Send e-mail
+        run:
+          echo "The AddedAnnotations repository was pulled and moved to production." | mail -s "[emdb-emicss] addedAnnotations has updated" pdb_em@ebi.ac.uk

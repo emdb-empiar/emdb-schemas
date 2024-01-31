@@ -1,0 +1,20 @@
+name: Run Unit Tests
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: self-hosted
+
+    steps:
+
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Test in a sample data
+      run: |
+        rsync ${{ secrets.BSUB_SERVER }}:${{ secrets.DATA_PATH }}/emd-8117-v30.xml .
+        xmllint --noout --schema emdb_schemas/current/emdb_relaxed.xsd emd-8117-v30.xml
