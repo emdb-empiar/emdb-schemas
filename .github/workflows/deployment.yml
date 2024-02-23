@@ -12,11 +12,11 @@ jobs:
     steps:
       - name: Pull repository
         run:
-          ssh ${{ secrets.BSUB_SERVER }} "git -C ${{ secrets.DEPLOY_PATH }}/ pull"
+          ssh ${{ secrets.SRUN_SERVER }} "git -C ${{ secrets.DEPLOY_PATH }}/ pull"
       - name: Deploy
         run: |
-          ssh ${{ secrets.BSUB_SERVER }} "bsub -K -q datamover 'cd ${{ secrets.DEPLOY_PATH }} && find . -name \"*.xsd\" -exec cp --parents {} ${{ secrets.FTP_PATH2 }}/ \\;'"
-          ssh ${{ secrets.BSUB_SERVER }} "bsub -K -q datamover 'rsync -av ${{ secrets.DEPLOY_PATH }}/emdb_schemas/ ${{ secrets.FTP_PATH }}/'"
+          ssh ${{ secrets.SRUN_SERVER }} "srun --job-name=deploy_emdb_prep --time=0:30:00 --mem=1g --partition=datamover --chdir=${{ secrets.DEPLOY_PATH }} bash -c 'find . -name \"*.xsd\" -exec cp --parents {} ${{ secrets.FTP_PATH2 }}/ \\;'"
+          ssh ${{ secrets.SRUN_SERVER }} "srun --job-name=deploy_emdb_prep --time=0:30:00 --mem=1g --partition=datamover bash -c 'rsync -av ${{ secrets.DEPLOY_PATH }}/emdb_schemas/ ${{ secrets.FTP_PATH }}/'"
       - name: Send e-mail
         run:
           echo "The EMDB schemas repository was pulled and moved to production." | mail -s "[emdb-schema] EMDB schema has updated" pdb_em@ebi.ac.uk

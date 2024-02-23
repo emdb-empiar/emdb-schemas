@@ -16,5 +16,5 @@ jobs:
 
     - name: Test in a sample data
       run: |
-        rsync ${{ secrets.BSUB_SERVER }}:${{ secrets.DATA_PATH }}/emd-8117-v30.xml .
+        rsync ${{ secrets.SRUN_SERVER }}:${{ secrets.DATA_PATH }}/emd-8117-v30.xml .
         xmllint --noout --schema emdb_schemas/current/emdb_relaxed.xsd emd-8117-v30.xml
