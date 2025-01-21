@@ -45,3 +45,4 @@ residue_range.
 3.0.9.1: Added "DECTRIS ELA (1k x 0.5k)" in allowed_film_or_detector_model
 3.0.9.2: Added "GATAN ALPINE (2.3k x 3.2k)" and "GATAN K3 BIOCONTINUUM (6k x 4k)" to allowed_film_or_detector_model
 3.0.9.3: Added "DECTRIS ARINA (0.2k x 0.2k)" to allowed_film_or_detector_model and "4D-STEM" to imaging_mode
+3.0.9.4: Added "TFS TITAN THEMIS" to microscope
