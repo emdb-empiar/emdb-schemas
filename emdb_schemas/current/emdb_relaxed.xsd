@@ -312,6 +312,7 @@
     <xs:element name="mask" substitutionGroup="revision_change_sub_group" type="part_revision_change_type" />
     <xs:element name="fsc" substitutionGroup="revision_change_sub_group" type="part_revision_change_type" />
     <xs:element name="additional_map" substitutionGroup="revision_change_sub_group" type="part_revision_change_type" />
+    <xs:element name="model" substitutionGroup="revision_change_sub_group" type="part_revision_change_type" />
     <xs:element name="metadata" substitutionGroup="revision_change_sub_group" type="metadata_revision_type" />
     <xs:complexType name="metadata_revision_type">
         <xs:complexContent>
