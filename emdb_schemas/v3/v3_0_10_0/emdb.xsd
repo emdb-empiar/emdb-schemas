@@ -261,7 +261,7 @@
     <xs:element name="revision_change_sub_group" type="base_revision_change_type" abstract="true"/>
     <xs:complexType name="base_revision_change_type">
         <xs:sequence>
-            <xs:element name="revision_type">
+            <xs:element name="revision_type" minOccurs="0">
                 <xs:simpleType>
                     <xs:restriction base="xs:token">
                         <xs:enumeration value="INITIAL_RELEASE"/>
