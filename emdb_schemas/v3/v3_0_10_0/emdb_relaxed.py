@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 #
-# Generated Thu Jan 30 10:56:31 2025 by generateDS.py version 2.43.3.
+# Generated Fri Jan 31 16:22:49 2025 by generateDS.py version 2.43.3.
 # Python 3.9.19 (main, Mar 21 2024, 12:08:14)  [Clang 14.0.6 ]
 #
 # Command line options:
@@ -3664,7 +3664,7 @@ class primary_map(GeneratedsSuper):
 # end class primary_map
 
 
-class metadata_revision_type(base_revision_change_type):
+class complex_revision_change_type(base_revision_change_type):
     __hash__ = GeneratedsSuper.__hash__
     subclass = None
     superclass = base_revision_change_type
@@ -3674,7 +3674,7 @@ class metadata_revision_type(base_revision_change_type):
         self.original_tagname_ = None
         self.parent_object_ = kwargs_.get('parent_object_')
         self.ns_prefix_ = None
-        super(globals().get("metadata_revision_type"), self).__init__(revision_type, provider, description, details, revision_group,  **kwargs_)
+        super(globals().get("complex_revision_change_type"), self).__init__(revision_type, provider, description, details, revision_group,  **kwargs_)
         self.categories = categories
         self.categories_nsprefix_ = None
         self.items = items
@@ -3682,13 +3682,13 @@ class metadata_revision_type(base_revision_change_type):
     def factory(*args_, **kwargs_):
         if CurrentSubclassModule_ is not None:
             subclass = getSubclassFromModule_(
-                CurrentSubclassModule_, metadata_revision_type)
+                CurrentSubclassModule_, complex_revision_change_type)
             if subclass is not None:
                 return subclass(*args_, **kwargs_)
-        if metadata_revision_type.subclass:
-            return metadata_revision_type.subclass(*args_, **kwargs_)
+        if complex_revision_change_type.subclass:
+            return complex_revision_change_type.subclass(*args_, **kwargs_)
         else:
-            return metadata_revision_type(*args_, **kwargs_)
+            return complex_revision_change_type(*args_, **kwargs_)
     factory = staticmethod(factory)
     def get_ns_prefix_(self):
         return self.ns_prefix_
@@ -3706,38 +3706,38 @@ class metadata_revision_type(base_revision_change_type):
         if (
             self.categories is not None or
             self.items is not None or
-            super(metadata_revision_type, self).has__content()
+            super(complex_revision_change_type, self).has__content()
         ):
             return True
         else:
             return False
-    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='metadata_revision_type', pretty_print=True):
-        imported_ns_def_ = GenerateDSNamespaceDefs_.get('metadata_revision_type')
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='complex_revision_change_type', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('complex_revision_change_type')
         if imported_ns_def_ is not None:
             namespacedef_ = imported_ns_def_
         if pretty_print:
             eol_ = '\n'
         else:
             eol_ = ''
-        if self.original_tagname_ is not None and name_ == 'metadata_revision_type':
+        if self.original_tagname_ is not None and name_ == 'complex_revision_change_type':
             name_ = self.original_tagname_
         if UseCapturedNS_ and self.ns_prefix_:
             namespaceprefix_ = self.ns_prefix_ + ':'
         showIndent(outfile, level, pretty_print)
         outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = set()
-        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='metadata_revision_type')
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='complex_revision_change_type')
         if self.has__content():
             outfile.write('>%s' % (eol_, ))
-            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='metadata_revision_type', pretty_print=pretty_print)
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='complex_revision_change_type', pretty_print=pretty_print)
             showIndent(outfile, level, pretty_print)
             outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
         else:
             outfile.write('/>%s' % (eol_, ))
-    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='metadata_revision_type'):
-        super(metadata_revision_type, self)._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='metadata_revision_type')
-    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='metadata_revision_type', fromsubclass_=False, pretty_print=True):
-        super(metadata_revision_type, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='complex_revision_change_type'):
+        super(complex_revision_change_type, self)._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='complex_revision_change_type')
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='complex_revision_change_type', fromsubclass_=False, pretty_print=True):
+        super(complex_revision_change_type, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
         if pretty_print:
             eol_ = '\n'
         else:
@@ -3760,7 +3760,7 @@ class metadata_revision_type(base_revision_change_type):
             self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
         return self
     def _buildAttributes(self, node, attrs, already_processed):
-        super(metadata_revision_type, self)._buildAttributes(node, attrs, already_processed)
+        super(complex_revision_change_type, self)._buildAttributes(node, attrs, already_processed)
     def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
         if nodeName_ == 'categories':
             obj_ = categoriesType.factory(parent_object_=self)
@@ -3772,8 +3772,8 @@ class metadata_revision_type(base_revision_change_type):
             obj_.build(child_, gds_collector_=gds_collector_)
             self.items = obj_
             obj_.original_tagname_ = 'items'
-        super(metadata_revision_type, self)._buildChildren(child_, node, nodeName_, True)
-# end class metadata_revision_type
+        super(complex_revision_change_type, self)._buildChildren(child_, node, nodeName_, True)
+# end class complex_revision_change_type
 
 
 class revision_category_or_item_type(GeneratedsSuper):
@@ -25833,12 +25833,12 @@ class change_listType(GeneratedsSuper):
             self.revision_change_sub_group.append(obj_)
             obj_.original_tagname_ = 'additional_map'
         elif nodeName_ == 'model':
-            obj_ = part_revision_change_type.factory(parent_object_=self)
+            obj_ = complex_revision_change_type.factory(parent_object_=self)
             obj_.build(child_, gds_collector_=gds_collector_)
             self.revision_change_sub_group.append(obj_)
             obj_.original_tagname_ = 'model'
         elif nodeName_ == 'metadata':
-            obj_ = metadata_revision_type.factory(parent_object_=self)
+            obj_ = complex_revision_change_type.factory(parent_object_=self)
             obj_.build(child_, gds_collector_=gds_collector_)
             self.revision_change_sub_group.append(obj_)
             obj_.original_tagname_ = 'metadata'
@@ -45591,9 +45591,9 @@ GDSClassesMapping = {
     'ligand': ligand_macromolecule_type,
     'macromolecule': base_macromolecule_type,
     'mask': part_revision_change_type,
-    'metadata': metadata_revision_type,
+    'metadata': complex_revision_change_type,
     'microscopy': base_microscopy_type,
-    'model': part_revision_change_type,
+    'model': complex_revision_change_type,
     'organelle_or_cellular_component_supramolecule': organelle_or_cellular_component_supramolecule_type,
     'other_macromolecule': other_macromolecule_type,
     'protein_or_peptide': protein_or_peptide_macromolecule_type,
@@ -45876,6 +45876,7 @@ __all__ = [
     "classification_type",
     "code_type",
     "coma_freeType",
+    "complex_revision_change_type",
     "complex_source_type",
     "complex_supramolecule_type",
     "concentrationType",
@@ -45991,7 +45992,6 @@ __all__ = [
     "map_type",
     "max",
     "max_angleType",
-    "metadata_revision_type",
     "microscopy_centerType",
     "microscopy_listType",
     "min",
