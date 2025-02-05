@@ -2,21 +2,21 @@
 # -*- coding: utf-8 -*-
 
 #
-# Generated Tue Jan 21 11:01:46 2025 by generateDS.py version 2.44.3.
+# Generated Wed Feb  5 15:26:50 2025 by generateDS.py version 2.44.3.
 # Python 3.10.9 (main, Mar  1 2023, 12:33:47) [Clang 14.0.6 ]
 #
 # Command line options:
 #   ('--root-element', 'emd')
 #   ('-f', '')
-#   ('-o', '/Users/lucas/Development/EMDB/emdb-schemas/emdb_schemas/v3/v3_0_9_4/emdb_relaxed.py')
+#   ('-o', 'emdb-schemas/emdb_schemas/v3/v3_0_9_5/emdb_relaxed.py')
 #   ('--no-warnings', '')
 #   ('--external-encoding', 'utf-8')
 #
 # Command line arguments:
-#   /Users/lucas/Development/EMDB/emdb-schemas/emdb_schemas/v3/v3_0_9_4/emdb_relaxed.xsd
+#   emdb-schemas/emdb_schemas/v3/v3_0_9_5/emdb_relaxed.xsd
 #
 # Command line:
-#   /Users/lucas/anaconda3/bin/generateDS --root-element="emd" -f -o "/Users/lucas/Development/EMDB/emdb-schemas/emdb_schemas/v3/v3_0_9_4/emdb_relaxed.py" --no-warnings --external-encoding="utf-8" /Users/lucas/Development/EMDB/emdb-schemas/emdb_schemas/v3/v3_0_9_4/emdb_relaxed.xsd
+#   /Users/lucas/anaconda3/bin/generateDS --root-element="emd" -f -o "emdb-schemas/emdb_schemas/v3/v3_0_9_5/emdb_relaxed.py" --no-warnings --external-encoding="utf-8" emdb-schemas/emdb_schemas/v3/v3_0_9_5/emdb_relaxed.xsd
 #
 # Current working directory (os.getcwd()):
 #   EMDB
@@ -1253,6 +1253,7 @@ class film_materialType(str, Enum):
     GRAPHENE='GRAPHENE'
     GRAPHENEOXIDE='GRAPHENE OXIDE'
     PARLODION='PARLODION'
+    SILICONDIOXIDE='SILICON DIOXIDE'
 
 
 class film_topologyType(str, Enum):
@@ -1778,7 +1779,7 @@ class entry_type(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
     subclass = None
     superclass = None
-    def __init__(self, emdb_id=None, version='3.0.9.4', admin=None, crossreferences=None, sample=None, structure_determination_list=None, map=None, interpretation=None, validation=None, gds_collector_=None, **kwargs_):
+    def __init__(self, emdb_id=None, version='3.0.9.5', admin=None, crossreferences=None, sample=None, structure_determination_list=None, map=None, interpretation=None, validation=None, gds_collector_=None, **kwargs_):
         self.gds_collector_ = gds_collector_
         self.gds_elementtree_node_ = None
         self.original_tagname_ = None
@@ -1904,7 +1905,7 @@ class entry_type(GeneratedsSuper):
         if self.emdb_id is not None and 'emdb_id' not in already_processed:
             already_processed.add('emdb_id')
             outfile.write(' emdb_id=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.emdb_id), input_name='emdb_id')), ))
-        if self.version != "3.0.9.4" and 'version' not in already_processed:
+        if self.version != "3.0.9.5" and 'version' not in already_processed:
             already_processed.add('version')
             outfile.write(' version=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.version), input_name='version')), ))
     def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='entry_type', fromsubclass_=False, pretty_print=True):
@@ -12034,7 +12035,7 @@ class film_type(GeneratedsSuper):
                 self.gds_collector_.add_message('Value "%(value)s"%(lineno)s is not of the correct base simple type (str)' % {"value": value, "lineno": lineno, })
                 return False
             value = value
-            enumerations = ['CARBON', 'CELLULOSE ACETATE', 'FORMVAR', 'GOLD', 'GRAPHENE', 'GRAPHENE OXIDE', 'PARLODION']
+            enumerations = ['CARBON', 'CELLULOSE ACETATE', 'FORMVAR', 'GOLD', 'GRAPHENE', 'GRAPHENE OXIDE', 'PARLODION', 'SILICON DIOXIDE']
             if value not in enumerations:
                 lineno = self.gds_get_node_lineno_()
                 self.gds_collector_.add_message('Value "%(value)s"%(lineno)s does not match xsd enumeration restriction on film_materialType' % {"value" : encode_str_2_3(value), "lineno": lineno} )

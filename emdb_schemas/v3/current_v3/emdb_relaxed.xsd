@@ -23,7 +23,7 @@
             </xs:element>
         </xs:sequence>
         <xs:attribute name="emdb_id" type="emdb_id_type" use="required" />
-        <xs:attribute name="version" type="xs:token" default="3.0.9.4" />
+        <xs:attribute name="version" type="xs:token" default="3.0.9.5" />
         
     </xs:complexType>
     <xs:complexType name="admin_type">
@@ -1592,6 +1592,7 @@
                         <xs:enumeration value="GRAPHENE" />
                         <xs:enumeration value="GRAPHENE OXIDE" />
                         <xs:enumeration value="PARLODION" />
+                        <xs:enumeration value="SILICON DIOXIDE" />
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
