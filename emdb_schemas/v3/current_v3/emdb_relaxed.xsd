@@ -321,29 +321,20 @@
                     <xs:element name="categories" minOccurs="0">
                         <xs:complexType>
                             <xs:sequence>
-                                <xs:element name="category" type="revision_category_or_item_type" minOccurs="1" maxOccurs="unbounded" />
+                                <xs:element name="category" type="xs:token" minOccurs="1" maxOccurs="unbounded" />
                             </xs:sequence>
                         </xs:complexType>
                     </xs:element>
                     <xs:element name="items" minOccurs="0">
                         <xs:complexType>
                             <xs:sequence>
-                                <xs:element name="item" type="revision_category_or_item_type" minOccurs="1" maxOccurs="unbounded" />
+                                <xs:element name="item" type="xs:token" minOccurs="1" maxOccurs="unbounded" />
                             </xs:sequence>
                         </xs:complexType>
                     </xs:element>
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType>
-    <xs:complexType name="revision_category_or_item_type">
-        <xs:simpleContent>
-            <xs:extension base="xs:token">
-                <xs:attribute name="revision_type" type="xs:token" use="required" />
-                <xs:attribute name="part" type="xs:positiveInteger" />
-                <xs:attribute name="revision_action" type="xs:token" use="required" />
-            </xs:extension>
-        </xs:simpleContent>
     </xs:complexType>
     <xs:complexType name="contact_details_type">
         <xs:sequence>
