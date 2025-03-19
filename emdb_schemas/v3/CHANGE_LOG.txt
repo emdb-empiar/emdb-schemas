@@ -48,3 +48,4 @@ residue_range.
 3.0.9.4: Added "TFS TITAN THEMIS" to microscope
 3.0.10.0: Added auditing to data model
 3.0.10.1: Added "SILICON DIOXIDE" to film_material
+3.0.10.2: Updated enumeration values in revision_group to match the controlled vocabulary list
