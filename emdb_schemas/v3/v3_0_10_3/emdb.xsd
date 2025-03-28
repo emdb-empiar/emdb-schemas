@@ -2081,7 +2081,6 @@
                                                 <xs:simpleType>
                                                   <xs:restriction base="xs:token">
                                                   <xs:enumeration value="DB235"/>
-                                                  <xs:enumeration value="TFS SCIOS DUALBEAM"/>
                                                   <xs:enumeration value="OTHER"/>
                                                   </xs:restriction>
                                                 </xs:simpleType>
