@@ -3545,7 +3545,18 @@
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
-            <xs:element name="details" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="details" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        A description of the motion correction operation in more detail.
+                    </xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="[][ \n\t()_,.;:&lt;&gt;/\{}'`~!@#$%?+=*A-Za-z0-9|^-]*"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
         </xs:sequence>
     </xs:complexType>
     <xs:simpleType name="correction_space_type">
