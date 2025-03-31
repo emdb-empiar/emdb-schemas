@@ -3516,7 +3516,7 @@
             </xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element name="id" type="xs:string" minOccurs="1" maxOccurs="1">
+            <!-- <xs:element name="id" type="xs:string" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation>
                         PRIMARY KEY
@@ -3539,7 +3539,7 @@
                         <xs:pattern value="[][_,.;:&lt;&gt;()/\{}'`~!@#$%A-Za-z0-9*|+-]*"/>
                     </xs:restriction>
                 </xs:simpleType>
-            </xs:element>
+            </xs:element> -->
             <xs:element name="type" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation>
