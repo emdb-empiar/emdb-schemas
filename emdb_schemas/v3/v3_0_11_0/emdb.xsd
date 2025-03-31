@@ -2673,6 +2673,13 @@
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
+            <xs:element name="microscope_serial_number" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        Microscope serial number.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
         </xs:sequence>
         <xs:attribute name="microscopy_id" type="xs:positiveInteger" use="required"/>
     </xs:complexType>
