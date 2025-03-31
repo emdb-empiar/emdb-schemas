@@ -3504,6 +3504,14 @@
             <xs:element name="details" type="xs:string" minOccurs="0"/>
         </xs:sequence>
     </xs:complexType>
+    <xs:complexType name="motion_correction_type">
+        <xs:sequence>
+            <xs:element name="id" type="xs:integer" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="image_processing_id" type="xs:integer" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="type" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="details" type="xs:string" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
     <xs:simpleType name="correction_space_type">
         <xs:restriction base="xs:string">
             <xs:enumeration value="REAL"/>
