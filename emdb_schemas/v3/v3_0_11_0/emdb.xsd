@@ -316,13 +316,20 @@
         </xs:complexContent>
     </xs:complexType>
     <xs:element name="primary_map" substitutionGroup="revision_change_sub_group"/>
-    <xs:element name="image" substitutionGroup="revision_change_sub_group" type="part_revision_change_type"/>
-    <xs:element name="half_map" substitutionGroup="revision_change_sub_group" type="part_revision_change_type"/>
-    <xs:element name="mask" substitutionGroup="revision_change_sub_group" type="part_revision_change_type"/>
-    <xs:element name="fsc" substitutionGroup="revision_change_sub_group" type="part_revision_change_type"/>
-    <xs:element name="additional_map" substitutionGroup="revision_change_sub_group" type="part_revision_change_type"/>
-    <xs:element name="model" substitutionGroup="revision_change_sub_group" type="complex_revision_change_type"/>
-    <xs:element name="metadata" substitutionGroup="revision_change_sub_group" type="complex_revision_change_type"/>
+    <xs:element name="image" substitutionGroup="revision_change_sub_group"
+        type="part_revision_change_type"/>
+    <xs:element name="half_map" substitutionGroup="revision_change_sub_group"
+        type="part_revision_change_type"/>
+    <xs:element name="mask" substitutionGroup="revision_change_sub_group"
+        type="part_revision_change_type"/>
+    <xs:element name="fsc" substitutionGroup="revision_change_sub_group"
+        type="part_revision_change_type"/>
+    <xs:element name="additional_map" substitutionGroup="revision_change_sub_group"
+        type="part_revision_change_type"/>
+    <xs:element name="model" substitutionGroup="revision_change_sub_group"
+        type="complex_revision_change_type"/>
+    <xs:element name="metadata" substitutionGroup="revision_change_sub_group"
+        type="complex_revision_change_type"/>
     <xs:complexType name="complex_revision_change_type">
         <xs:complexContent>
             <xs:extension base="base_revision_change_type">
@@ -330,14 +337,16 @@
                     <xs:element name="categories" minOccurs="0">
                         <xs:complexType>
                             <xs:sequence>
-                                <xs:element name="category" type="xs:token" minOccurs="1" maxOccurs="unbounded"/>
+                                <xs:element name="category" type="xs:token" minOccurs="1"
+                                    maxOccurs="unbounded"/>
                             </xs:sequence>
                         </xs:complexType>
                     </xs:element>
                     <xs:element name="items" minOccurs="0">
                         <xs:complexType>
                             <xs:sequence>
-                                <xs:element name="item" type="xs:token" minOccurs="1" maxOccurs="unbounded"/>
+                                <xs:element name="item" type="xs:token" minOccurs="1"
+                                    maxOccurs="unbounded"/>
                             </xs:sequence>
                         </xs:complexType>
                     </xs:element>
@@ -1803,7 +1812,7 @@
                         <xs:enumeration value="GRAPHENE"/>
                         <xs:enumeration value="GRAPHENE OXIDE"/>
                         <xs:enumeration value="PARLODION"/>
-                        <xs:enumeration value="SILICON DIOXIDE" />
+                        <xs:enumeration value="SILICON DIOXIDE"/>
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
@@ -2686,7 +2695,7 @@
                         Version of the microscope.
                     </xs:documentation>
                 </xs:annotation>
-            </xs:element>            
+            </xs:element>
         </xs:sequence>
         <xs:attribute name="microscopy_id" type="xs:positiveInteger" use="required"/>
     </xs:complexType>
@@ -3555,17 +3564,12 @@
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
-            <xs:element name="details" minOccurs="0" maxOccurs="1">
+            <xs:element name="details" minOccurs="0" maxOccurs="1" type="xs:string">
                 <xs:annotation>
                     <xs:documentation>
                         A description of the motion correction operation in more detail.
                     </xs:documentation>
                 </xs:annotation>
-                <xs:simpleType>
-                    <xs:restriction base="xs:string">
-                        <xs:pattern value="[][ \n\t()_,.;:&lt;&gt;/\{}'`~!@#$%?+=*A-Za-z0-9|^-]*"/>
-                    </xs:restriction>
-                </xs:simpleType>
             </xs:element>
         </xs:sequence>
     </xs:complexType>
