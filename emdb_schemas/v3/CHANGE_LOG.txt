@@ -50,3 +50,4 @@ residue_range.
 3.0.10.1: Added "SILICON DIOXIDE" to film_material
 3.0.10.2: Updated enumeration values in revision_group to match the controlled vocabulary list
 3.0.10.3: Added "CRYOSOL VITROJET", "SPT LABTECH CHAMELEON", and "ZEISS PLUNGE FREEZER CRYOBOX" to the instrument enumeration list
+3.0.11.0: Added objective_aperture, microscope_serial_number and microscope_version items to microscopy; Added em_motion_correction category with items type and details
