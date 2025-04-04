@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 #
-# Generated Wed Apr  2 10:18:50 2025 by generateDS.py version 2.44.3.
+# Generated Fri Apr  4 11:19:45 2025 by generateDS.py version 2.44.3.
 # Python 3.10.9 (main, Mar  1 2023, 12:33:47) [Clang 14.0.6 ]
 #
 # Command line options:
@@ -1731,7 +1731,13 @@ class typeType5(str, Enum):
 
 
 class typeType53(str, Enum):
-    """typeType53 --
+    NONE='NONE'
+    PHASEFLIPPINGONLY='PHASE FLIPPING ONLY'
+    PHASEFLIPPINGANDAMPLITUDECORRECTION='PHASE FLIPPING AND AMPLITUDE CORRECTION'
+
+
+class typeType54(str, Enum):
+    """typeType54 --
     Type of motion correction carried out.
     
     """
@@ -1741,7 +1747,7 @@ class typeType53(str, Enum):
     WHOLEMICROGRAPH='WHOLE MICROGRAPH'
 
 
-class typeType57(str, Enum):
+class typeType58(str, Enum):
     ANGULARRECONSTITUTION='ANGULAR RECONSTITUTION'
     COMMONLINE='COMMON LINE'
     NOTAPPLICABLE='NOT APPLICABLE'
@@ -19081,7 +19087,7 @@ class ctf_correction_type(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
     subclass = None
     superclass = None
-    def __init__(self, phase_reversal=None, amplitude_correction=None, correction_operation=None, software_list=None, details=None, gds_collector_=None, **kwargs_):
+    def __init__(self, phase_reversal=None, amplitude_correction=None, correction_operation=None, software_list=None, details=None, type_=None, gds_collector_=None, **kwargs_):
         self.gds_collector_ = gds_collector_
         self.gds_elementtree_node_ = None
         self.original_tagname_ = None
@@ -19098,6 +19104,9 @@ class ctf_correction_type(GeneratedsSuper):
         self.software_list_nsprefix_ = None
         self.details = details
         self.details_nsprefix_ = None
+        self.type_ = type_
+        self.validate_typeType53(self.type_)
+        self.type__nsprefix_ = None
     def factory(*args_, **kwargs_):
         if CurrentSubclassModule_ is not None:
             subclass = getSubclassFromModule_(
@@ -19133,6 +19142,10 @@ class ctf_correction_type(GeneratedsSuper):
         return self.details
     def set_details(self, details):
         self.details = details
+    def get_type(self):
+        return self.type_
+    def set_type(self, type_):
+        self.type_ = type_
     def validate_correction_operationType(self, value):
         result = True
         # Validate type correction_operationType, a restriction on xs:string.
@@ -19148,13 +19161,29 @@ class ctf_correction_type(GeneratedsSuper):
                 self.gds_collector_.add_message('Value "%(value)s"%(lineno)s does not match xsd enumeration restriction on correction_operationType' % {"value" : encode_str_2_3(value), "lineno": lineno} )
                 result = False
         return result
+    def validate_typeType53(self, value):
+        result = True
+        # Validate type typeType53, a restriction on xs:string.
+        if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
+            if not isinstance(value, str):
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s is not of the correct base simple type (str)' % {"value": value, "lineno": lineno, })
+                return False
+            value = value
+            enumerations = ['NONE', 'PHASE FLIPPING ONLY', 'PHASE FLIPPING AND AMPLITUDE CORRECTION']
+            if value not in enumerations:
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s does not match xsd enumeration restriction on typeType53' % {"value" : encode_str_2_3(value), "lineno": lineno} )
+                result = False
+        return result
     def has__content(self):
         if (
             self.phase_reversal is not None or
             self.amplitude_correction is not None or
             self.correction_operation is not None or
             self.software_list is not None or
-            self.details is not None
+            self.details is not None or
+            self.type_ is not None
         ):
             return True
         else:
@@ -19206,6 +19235,10 @@ class ctf_correction_type(GeneratedsSuper):
             namespaceprefix_ = self.details_nsprefix_ + ':' if (UseCapturedNS_ and self.details_nsprefix_) else ''
             showIndent(outfile, level, pretty_print)
             outfile.write('<%sdetails>%s</%sdetails>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.details), input_name='details')), namespaceprefix_ , eol_))
+        if self.type_ is not None:
+            namespaceprefix_ = self.type__nsprefix_ + ':' if (UseCapturedNS_ and self.type__nsprefix_) else ''
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%stype>%s</%stype>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.type_), input_name='type')), namespaceprefix_ , eol_))
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -19249,6 +19282,14 @@ class ctf_correction_type(GeneratedsSuper):
             value_ = self.gds_validate_string(value_, node, 'details')
             self.details = value_
             self.details_nsprefix_ = child_.prefix
+        elif nodeName_ == 'type':
+            value_ = child_.text
+            value_ = self.gds_parse_string(value_, node, 'type')
+            value_ = self.gds_validate_string(value_, node, 'type')
+            self.type_ = value_
+            self.type_nsprefix_ = child_.prefix
+            # validate type typeType53
+            self.validate_typeType53(self.type_)
 # end class ctf_correction_type
 
 
@@ -19276,7 +19317,7 @@ class motion_correction_type(GeneratedsSuper):
         self.parent_object_ = kwargs_.get('parent_object_')
         self.ns_prefix_ = None
         self.type_ = type_
-        self.validate_typeType53(self.type_)
+        self.validate_typeType54(self.type_)
         self.type__nsprefix_ = None
         self.details = details
         self.details_nsprefix_ = None
@@ -19303,9 +19344,9 @@ class motion_correction_type(GeneratedsSuper):
         return self.details
     def set_details(self, details):
         self.details = details
-    def validate_typeType53(self, value):
+    def validate_typeType54(self, value):
         result = True
-        # Validate type typeType53, a restriction on xs:string.
+        # Validate type typeType54, a restriction on xs:string.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
             if not isinstance(value, str):
                 lineno = self.gds_get_node_lineno_()
@@ -19315,7 +19356,7 @@ class motion_correction_type(GeneratedsSuper):
             enumerations = ['MICROGRAPH PATCHES', 'NONE', 'PER PARTICLE', 'WHOLE MICROGRAPH']
             if value not in enumerations:
                 lineno = self.gds_get_node_lineno_()
-                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s does not match xsd enumeration restriction on typeType53' % {"value" : encode_str_2_3(value), "lineno": lineno} )
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s does not match xsd enumeration restriction on typeType54' % {"value" : encode_str_2_3(value), "lineno": lineno} )
                 result = False
         return result
     def has__content(self):
@@ -19384,8 +19425,8 @@ class motion_correction_type(GeneratedsSuper):
             value_ = self.gds_validate_string(value_, node, 'type')
             self.type_ = value_
             self.type_nsprefix_ = child_.prefix
-            # validate type typeType53
-            self.validate_typeType53(self.type_)
+            # validate type typeType54
+            self.validate_typeType54(self.type_)
         elif nodeName_ == 'details':
             value_ = child_.text
             value_ = self.gds_parse_string(value_, node, 'details')
@@ -19782,7 +19823,7 @@ class crystallography_statistics_type(GeneratedsSuper):
             self.phase_error_rejection_criteria = value_
             self.phase_error_rejection_criteria_nsprefix_ = child_.prefix
         elif nodeName_ == 'high_resolution':
-            obj_ = high_resolutionType54.factory(parent_object_=self)
+            obj_ = high_resolutionType55.factory(parent_object_=self)
             obj_.build(child_, gds_collector_=gds_collector_)
             self.high_resolution = obj_
             obj_.original_tagname_ = 'high_resolution'
@@ -20611,7 +20652,7 @@ class angle_assignment_type(GeneratedsSuper):
         self.parent_object_ = kwargs_.get('parent_object_')
         self.ns_prefix_ = None
         self.type_ = type_
-        self.validate_typeType57(self.type_)
+        self.validate_typeType58(self.type_)
         self.type__nsprefix_ = None
         self.projection_matching_processing = projection_matching_processing
         self.projection_matching_processing_nsprefix_ = None
@@ -20650,9 +20691,9 @@ class angle_assignment_type(GeneratedsSuper):
         return self.details
     def set_details(self, details):
         self.details = details
-    def validate_typeType57(self, value):
+    def validate_typeType58(self, value):
         result = True
-        # Validate type typeType57, a restriction on xs:token.
+        # Validate type typeType58, a restriction on xs:token.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
             if not isinstance(value, str):
                 lineno = self.gds_get_node_lineno_()
@@ -20662,7 +20703,7 @@ class angle_assignment_type(GeneratedsSuper):
             enumerations = ['ANGULAR RECONSTITUTION', 'COMMON LINE', 'NOT APPLICABLE', 'OTHER', 'PROJECTION MATCHING', 'RANDOM ASSIGNMENT', 'MAXIMUM LIKELIHOOD']
             if value not in enumerations:
                 lineno = self.gds_get_node_lineno_()
-                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s does not match xsd enumeration restriction on typeType57' % {"value" : encode_str_2_3(value), "lineno": lineno} )
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s does not match xsd enumeration restriction on typeType58' % {"value" : encode_str_2_3(value), "lineno": lineno} )
                 result = False
         return result
     def has__content(self):
@@ -20743,8 +20784,8 @@ class angle_assignment_type(GeneratedsSuper):
             value_ = self.gds_validate_string(value_, node, 'type')
             self.type_ = value_
             self.type_nsprefix_ = child_.prefix
-            # validate type typeType57
-            self.validate_typeType57(self.type_)
+            # validate type typeType58
+            self.validate_typeType58(self.type_)
         elif nodeName_ == 'projection_matching_processing':
             obj_ = projection_matching_processingType.factory(parent_object_=self)
             obj_.build(child_, gds_collector_=gds_collector_)
@@ -21522,7 +21563,7 @@ class subtomogram_averaging_processing_type(base_image_processing_type):
             self.motion_correction = obj_
             obj_.original_tagname_ = 'motion_correction'
         elif nodeName_ == 'final_multi_reference_alignment':
-            obj_ = final_multi_reference_alignmentType61.factory(parent_object_=self)
+            obj_ = final_multi_reference_alignmentType62.factory(parent_object_=self)
             obj_.build(child_, gds_collector_=gds_collector_)
             self.final_multi_reference_alignment = obj_
             obj_.original_tagname_ = 'final_multi_reference_alignment'
@@ -23137,7 +23178,7 @@ class figure_type(GeneratedsSuper):
         self.parent_object_ = kwargs_.get('parent_object_')
         self.ns_prefix_ = None
         self.file = file
-        self.validate_fileType66(self.file)
+        self.validate_fileType67(self.file)
         self.file_nsprefix_ = None
         self.details = details
         self.details_nsprefix_ = None
@@ -23164,20 +23205,20 @@ class figure_type(GeneratedsSuper):
         return self.details
     def set_details(self, details):
         self.details = details
-    def validate_fileType66(self, value):
+    def validate_fileType67(self, value):
         result = True
-        # Validate type fileType66, a restriction on xs:token.
+        # Validate type fileType67, a restriction on xs:token.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
             if not isinstance(value, str):
                 lineno = self.gds_get_node_lineno_()
                 self.gds_collector_.add_message('Value "%(value)s"%(lineno)s is not of the correct base simple type (str)' % {"value": value, "lineno": lineno, })
                 return False
             if not self.gds_validate_simple_patterns(
-                    self.validate_fileType66_patterns_, value):
-                self.gds_collector_.add_message('Value "%s" does not match xsd pattern restrictions: %s' % (encode_str_2_3(value), self.validate_fileType66_patterns_, ))
+                    self.validate_fileType67_patterns_, value):
+                self.gds_collector_.add_message('Value "%s" does not match xsd pattern restrictions: %s' % (encode_str_2_3(value), self.validate_fileType67_patterns_, ))
                 result = False
         return result
-    validate_fileType66_patterns_ = [['^(emd_\\d{4,}.+)$']]
+    validate_fileType67_patterns_ = [['^(emd_\\d{4,}.+)$']]
     def has__content(self):
         if (
             self.file is not None or
@@ -23248,8 +23289,8 @@ class figure_type(GeneratedsSuper):
             value_ = self.gds_validate_string(value_, node, 'file')
             self.file = value_
             self.file_nsprefix_ = child_.prefix
-            # validate type fileType66
-            self.validate_fileType66(self.file)
+            # validate type fileType67
+            self.validate_fileType67(self.file)
         elif nodeName_ == 'details':
             value_ = child_.text
             value_ = self.gds_parse_string(value_, node, 'details')
@@ -23270,7 +23311,7 @@ class validation_type(GeneratedsSuper):
         self.parent_object_ = kwargs_.get('parent_object_')
         self.ns_prefix_ = None
         self.file = file
-        self.validate_fileType67(self.file)
+        self.validate_fileType68(self.file)
         self.file_nsprefix_ = None
         self.details = details
         self.details_nsprefix_ = None
@@ -23300,20 +23341,20 @@ class validation_type(GeneratedsSuper):
         self.details = details
     def get_extensiontype_(self): return self.extensiontype_
     def set_extensiontype_(self, extensiontype_): self.extensiontype_ = extensiontype_
-    def validate_fileType67(self, value):
+    def validate_fileType68(self, value):
         result = True
-        # Validate type fileType67, a restriction on xs:token.
+        # Validate type fileType68, a restriction on xs:token.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
             if not isinstance(value, str):
                 lineno = self.gds_get_node_lineno_()
                 self.gds_collector_.add_message('Value "%(value)s"%(lineno)s is not of the correct base simple type (str)' % {"value": value, "lineno": lineno, })
                 return False
             if not self.gds_validate_simple_patterns(
-                    self.validate_fileType67_patterns_, value):
-                self.gds_collector_.add_message('Value "%s" does not match xsd pattern restrictions: %s' % (encode_str_2_3(value), self.validate_fileType67_patterns_, ))
+                    self.validate_fileType68_patterns_, value):
+                self.gds_collector_.add_message('Value "%s" does not match xsd pattern restrictions: %s' % (encode_str_2_3(value), self.validate_fileType68_patterns_, ))
                 result = False
         return result
-    validate_fileType67_patterns_ = [['^(emd_\\d{4,}_fsc(_[1-9]{1,})*.xml)$']]
+    validate_fileType68_patterns_ = [['^(emd_\\d{4,}_fsc(_[1-9]{1,})*.xml)$']]
     def has__content(self):
         if (
             self.file is not None or
@@ -23395,8 +23436,8 @@ class validation_type(GeneratedsSuper):
             value_ = self.gds_validate_string(value_, node, 'file')
             self.file = value_
             self.file_nsprefix_ = child_.prefix
-            # validate type fileType67
-            self.validate_fileType67(self.file)
+            # validate type fileType68
+            self.validate_fileType68(self.file)
         elif nodeName_ == 'details':
             value_ = child_.text
             value_ = self.gds_parse_string(value_, node, 'details')
@@ -40101,7 +40142,7 @@ class low_resolutionType(GeneratedsSuper):
 # end class low_resolutionType
 
 
-class high_resolutionType54(GeneratedsSuper):
+class high_resolutionType55(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
     subclass = None
     superclass = None
@@ -40117,13 +40158,13 @@ class high_resolutionType54(GeneratedsSuper):
     def factory(*args_, **kwargs_):
         if CurrentSubclassModule_ is not None:
             subclass = getSubclassFromModule_(
-                CurrentSubclassModule_, high_resolutionType54)
+                CurrentSubclassModule_, high_resolutionType55)
             if subclass is not None:
                 return subclass(*args_, **kwargs_)
-        if high_resolutionType54.subclass:
-            return high_resolutionType54.subclass(*args_, **kwargs_)
+        if high_resolutionType55.subclass:
+            return high_resolutionType55.subclass(*args_, **kwargs_)
         else:
-            return high_resolutionType54(*args_, **kwargs_)
+            return high_resolutionType55(*args_, **kwargs_)
     factory = staticmethod(factory)
     def get_ns_prefix_(self):
         return self.ns_prefix_
@@ -40155,31 +40196,31 @@ class high_resolutionType54(GeneratedsSuper):
             return True
         else:
             return False
-    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='high_resolutionType54', pretty_print=True):
-        imported_ns_def_ = GenerateDSNamespaceDefs_.get('high_resolutionType54')
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='high_resolutionType55', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('high_resolutionType55')
         if imported_ns_def_ is not None:
             namespacedef_ = imported_ns_def_
         if pretty_print:
             eol_ = '\n'
         else:
             eol_ = ''
-        if self.original_tagname_ is not None and name_ == 'high_resolutionType54':
+        if self.original_tagname_ is not None and name_ == 'high_resolutionType55':
             name_ = self.original_tagname_
         if UseCapturedNS_ and self.ns_prefix_:
             namespaceprefix_ = self.ns_prefix_ + ':'
         showIndent(outfile, level, pretty_print)
         outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = set()
-        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='high_resolutionType54')
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='high_resolutionType55')
         outfile.write('>')
         self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_, pretty_print=pretty_print)
         outfile.write(self.convert_unicode(self.valueOf_))
         outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
-    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='high_resolutionType54'):
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='high_resolutionType55'):
         if self.units is not None and 'units' not in already_processed:
             already_processed.add('units')
             outfile.write(' units=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.units), input_name='units')), ))
-    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='high_resolutionType54', fromsubclass_=False, pretty_print=True):
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='high_resolutionType55', fromsubclass_=False, pretty_print=True):
         pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
@@ -40201,7 +40242,7 @@ class high_resolutionType54(GeneratedsSuper):
             self.units = ' '.join(self.units.split())
     def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
         pass
-# end class high_resolutionType54
+# end class high_resolutionType55
 
 
 class shell_listType(GeneratedsSuper):
@@ -40459,12 +40500,12 @@ class shellType(GeneratedsSuper):
                 raise_parse_error(node, 'Invalid PositiveInteger')
     def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
         if nodeName_ == 'high_resolution':
-            obj_ = high_resolutionType55.factory(parent_object_=self)
+            obj_ = high_resolutionType56.factory(parent_object_=self)
             obj_.build(child_, gds_collector_=gds_collector_)
             self.high_resolution = obj_
             obj_.original_tagname_ = 'high_resolution'
         elif nodeName_ == 'low_resolution':
-            obj_ = low_resolutionType56.factory(parent_object_=self)
+            obj_ = low_resolutionType57.factory(parent_object_=self)
             obj_.build(child_, gds_collector_=gds_collector_)
             self.low_resolution = obj_
             obj_.original_tagname_ = 'low_resolution'
@@ -40497,7 +40538,7 @@ class shellType(GeneratedsSuper):
 # end class shellType
 
 
-class high_resolutionType55(GeneratedsSuper):
+class high_resolutionType56(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
     subclass = None
     superclass = None
@@ -40513,13 +40554,13 @@ class high_resolutionType55(GeneratedsSuper):
     def factory(*args_, **kwargs_):
         if CurrentSubclassModule_ is not None:
             subclass = getSubclassFromModule_(
-                CurrentSubclassModule_, high_resolutionType55)
+                CurrentSubclassModule_, high_resolutionType56)
             if subclass is not None:
                 return subclass(*args_, **kwargs_)
-        if high_resolutionType55.subclass:
-            return high_resolutionType55.subclass(*args_, **kwargs_)
+        if high_resolutionType56.subclass:
+            return high_resolutionType56.subclass(*args_, **kwargs_)
         else:
-            return high_resolutionType55(*args_, **kwargs_)
+            return high_resolutionType56(*args_, **kwargs_)
     factory = staticmethod(factory)
     def get_ns_prefix_(self):
         return self.ns_prefix_
@@ -40551,31 +40592,31 @@ class high_resolutionType55(GeneratedsSuper):
             return True
         else:
             return False
-    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='high_resolutionType55', pretty_print=True):
-        imported_ns_def_ = GenerateDSNamespaceDefs_.get('high_resolutionType55')
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='high_resolutionType56', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('high_resolutionType56')
         if imported_ns_def_ is not None:
             namespacedef_ = imported_ns_def_
         if pretty_print:
             eol_ = '\n'
         else:
             eol_ = ''
-        if self.original_tagname_ is not None and name_ == 'high_resolutionType55':
+        if self.original_tagname_ is not None and name_ == 'high_resolutionType56':
             name_ = self.original_tagname_
         if UseCapturedNS_ and self.ns_prefix_:
             namespaceprefix_ = self.ns_prefix_ + ':'
         showIndent(outfile, level, pretty_print)
         outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = set()
-        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='high_resolutionType55')
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='high_resolutionType56')
         outfile.write('>')
         self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_, pretty_print=pretty_print)
         outfile.write(self.convert_unicode(self.valueOf_))
         outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
-    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='high_resolutionType55'):
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='high_resolutionType56'):
         if self.units is not None and 'units' not in already_processed:
             already_processed.add('units')
             outfile.write(' units=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.units), input_name='units')), ))
-    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='high_resolutionType55', fromsubclass_=False, pretty_print=True):
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='high_resolutionType56', fromsubclass_=False, pretty_print=True):
         pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
@@ -40597,10 +40638,10 @@ class high_resolutionType55(GeneratedsSuper):
             self.units = ' '.join(self.units.split())
     def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
         pass
-# end class high_resolutionType55
+# end class high_resolutionType56
 
 
-class low_resolutionType56(GeneratedsSuper):
+class low_resolutionType57(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
     subclass = None
     superclass = None
@@ -40616,13 +40657,13 @@ class low_resolutionType56(GeneratedsSuper):
     def factory(*args_, **kwargs_):
         if CurrentSubclassModule_ is not None:
             subclass = getSubclassFromModule_(
-                CurrentSubclassModule_, low_resolutionType56)
+                CurrentSubclassModule_, low_resolutionType57)
             if subclass is not None:
                 return subclass(*args_, **kwargs_)
-        if low_resolutionType56.subclass:
-            return low_resolutionType56.subclass(*args_, **kwargs_)
+        if low_resolutionType57.subclass:
+            return low_resolutionType57.subclass(*args_, **kwargs_)
         else:
-            return low_resolutionType56(*args_, **kwargs_)
+            return low_resolutionType57(*args_, **kwargs_)
     factory = staticmethod(factory)
     def get_ns_prefix_(self):
         return self.ns_prefix_
@@ -40654,31 +40695,31 @@ class low_resolutionType56(GeneratedsSuper):
             return True
         else:
             return False
-    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='low_resolutionType56', pretty_print=True):
-        imported_ns_def_ = GenerateDSNamespaceDefs_.get('low_resolutionType56')
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='low_resolutionType57', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('low_resolutionType57')
         if imported_ns_def_ is not None:
             namespacedef_ = imported_ns_def_
         if pretty_print:
             eol_ = '\n'
         else:
             eol_ = ''
-        if self.original_tagname_ is not None and name_ == 'low_resolutionType56':
+        if self.original_tagname_ is not None and name_ == 'low_resolutionType57':
             name_ = self.original_tagname_
         if UseCapturedNS_ and self.ns_prefix_:
             namespaceprefix_ = self.ns_prefix_ + ':'
         showIndent(outfile, level, pretty_print)
         outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = set()
-        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='low_resolutionType56')
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='low_resolutionType57')
         outfile.write('>')
         self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_, pretty_print=pretty_print)
         outfile.write(self.convert_unicode(self.valueOf_))
         outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
-    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='low_resolutionType56'):
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='low_resolutionType57'):
         if self.units is not None and 'units' not in already_processed:
             already_processed.add('units')
             outfile.write(' units=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.units), input_name='units')), ))
-    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='low_resolutionType56', fromsubclass_=False, pretty_print=True):
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='low_resolutionType57', fromsubclass_=False, pretty_print=True):
         pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
@@ -40700,7 +40741,7 @@ class low_resolutionType56(GeneratedsSuper):
             self.units = ' '.join(self.units.split())
     def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
         pass
-# end class low_resolutionType56
+# end class low_resolutionType57
 
 
 class segment_lengthType(GeneratedsSuper):
@@ -41949,7 +41990,7 @@ class final_multi_reference_alignmentType(GeneratedsSuper):
             self.merit_function = value_
             self.merit_function_nsprefix_ = child_.prefix
         elif nodeName_ == 'angular_sampling':
-            obj_ = angular_samplingType58.factory(parent_object_=self)
+            obj_ = angular_samplingType59.factory(parent_object_=self)
             obj_.build(child_, gds_collector_=gds_collector_)
             self.angular_sampling = obj_
             obj_.original_tagname_ = 'angular_sampling'
@@ -41967,7 +42008,7 @@ class final_multi_reference_alignmentType(GeneratedsSuper):
 # end class final_multi_reference_alignmentType
 
 
-class angular_samplingType58(GeneratedsSuper):
+class angular_samplingType59(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
     subclass = None
     superclass = None
@@ -41983,13 +42024,13 @@ class angular_samplingType58(GeneratedsSuper):
     def factory(*args_, **kwargs_):
         if CurrentSubclassModule_ is not None:
             subclass = getSubclassFromModule_(
-                CurrentSubclassModule_, angular_samplingType58)
+                CurrentSubclassModule_, angular_samplingType59)
             if subclass is not None:
                 return subclass(*args_, **kwargs_)
-        if angular_samplingType58.subclass:
-            return angular_samplingType58.subclass(*args_, **kwargs_)
+        if angular_samplingType59.subclass:
+            return angular_samplingType59.subclass(*args_, **kwargs_)
         else:
-            return angular_samplingType58(*args_, **kwargs_)
+            return angular_samplingType59(*args_, **kwargs_)
     factory = staticmethod(factory)
     def get_ns_prefix_(self):
         return self.ns_prefix_
@@ -42021,31 +42062,31 @@ class angular_samplingType58(GeneratedsSuper):
             return True
         else:
             return False
-    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='angular_samplingType58', pretty_print=True):
-        imported_ns_def_ = GenerateDSNamespaceDefs_.get('angular_samplingType58')
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='angular_samplingType59', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('angular_samplingType59')
         if imported_ns_def_ is not None:
             namespacedef_ = imported_ns_def_
         if pretty_print:
             eol_ = '\n'
         else:
             eol_ = ''
-        if self.original_tagname_ is not None and name_ == 'angular_samplingType58':
+        if self.original_tagname_ is not None and name_ == 'angular_samplingType59':
             name_ = self.original_tagname_
         if UseCapturedNS_ and self.ns_prefix_:
             namespaceprefix_ = self.ns_prefix_ + ':'
         showIndent(outfile, level, pretty_print)
         outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = set()
-        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='angular_samplingType58')
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='angular_samplingType59')
         outfile.write('>')
         self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_, pretty_print=pretty_print)
         outfile.write(self.convert_unicode(self.valueOf_))
         outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
-    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='angular_samplingType58'):
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='angular_samplingType59'):
         if self.units is not None and 'units' not in already_processed:
             already_processed.add('units')
             outfile.write(' units=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.units), input_name='units')), ))
-    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='angular_samplingType58', fromsubclass_=False, pretty_print=True):
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='angular_samplingType59', fromsubclass_=False, pretty_print=True):
         pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
@@ -42067,10 +42108,10 @@ class angular_samplingType58(GeneratedsSuper):
             self.units = ' '.join(self.units.split())
     def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
         pass
-# end class angular_samplingType58
+# end class angular_samplingType59
 
 
-class final_multi_reference_alignmentType59(GeneratedsSuper):
+class final_multi_reference_alignmentType60(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
     subclass = None
     superclass = None
@@ -42093,13 +42134,13 @@ class final_multi_reference_alignmentType59(GeneratedsSuper):
     def factory(*args_, **kwargs_):
         if CurrentSubclassModule_ is not None:
             subclass = getSubclassFromModule_(
-                CurrentSubclassModule_, final_multi_reference_alignmentType59)
+                CurrentSubclassModule_, final_multi_reference_alignmentType60)
             if subclass is not None:
                 return subclass(*args_, **kwargs_)
-        if final_multi_reference_alignmentType59.subclass:
-            return final_multi_reference_alignmentType59.subclass(*args_, **kwargs_)
+        if final_multi_reference_alignmentType60.subclass:
+            return final_multi_reference_alignmentType60.subclass(*args_, **kwargs_)
         else:
-            return final_multi_reference_alignmentType59(*args_, **kwargs_)
+            return final_multi_reference_alignmentType60(*args_, **kwargs_)
     factory = staticmethod(factory)
     def get_ns_prefix_(self):
         return self.ns_prefix_
@@ -42136,32 +42177,32 @@ class final_multi_reference_alignmentType59(GeneratedsSuper):
             return True
         else:
             return False
-    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='final_multi_reference_alignmentType59', pretty_print=True):
-        imported_ns_def_ = GenerateDSNamespaceDefs_.get('final_multi_reference_alignmentType59')
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='final_multi_reference_alignmentType60', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('final_multi_reference_alignmentType60')
         if imported_ns_def_ is not None:
             namespacedef_ = imported_ns_def_
         if pretty_print:
             eol_ = '\n'
         else:
             eol_ = ''
-        if self.original_tagname_ is not None and name_ == 'final_multi_reference_alignmentType59':
+        if self.original_tagname_ is not None and name_ == 'final_multi_reference_alignmentType60':
             name_ = self.original_tagname_
         if UseCapturedNS_ and self.ns_prefix_:
             namespaceprefix_ = self.ns_prefix_ + ':'
         showIndent(outfile, level, pretty_print)
         outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = set()
-        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='final_multi_reference_alignmentType59')
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='final_multi_reference_alignmentType60')
         if self.has__content():
             outfile.write('>%s' % (eol_, ))
-            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='final_multi_reference_alignmentType59', pretty_print=pretty_print)
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='final_multi_reference_alignmentType60', pretty_print=pretty_print)
             showIndent(outfile, level, pretty_print)
             outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
         else:
             outfile.write('/>%s' % (eol_, ))
-    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='final_multi_reference_alignmentType59'):
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='final_multi_reference_alignmentType60'):
         pass
-    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='final_multi_reference_alignmentType59', fromsubclass_=False, pretty_print=True):
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='final_multi_reference_alignmentType60', fromsubclass_=False, pretty_print=True):
         if pretty_print:
             eol_ = '\n'
         else:
@@ -42213,7 +42254,7 @@ class final_multi_reference_alignmentType59(GeneratedsSuper):
             self.merit_function = value_
             self.merit_function_nsprefix_ = child_.prefix
         elif nodeName_ == 'angular_sampling':
-            obj_ = angular_samplingType60.factory(parent_object_=self)
+            obj_ = angular_samplingType61.factory(parent_object_=self)
             obj_.build(child_, gds_collector_=gds_collector_)
             self.angular_sampling = obj_
             obj_.original_tagname_ = 'angular_sampling'
@@ -42228,10 +42269,10 @@ class final_multi_reference_alignmentType59(GeneratedsSuper):
             value_ = self.gds_validate_string(value_, node, 'details')
             self.details = value_
             self.details_nsprefix_ = child_.prefix
-# end class final_multi_reference_alignmentType59
+# end class final_multi_reference_alignmentType60
 
 
-class angular_samplingType60(GeneratedsSuper):
+class angular_samplingType61(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
     subclass = None
     superclass = None
@@ -42247,13 +42288,13 @@ class angular_samplingType60(GeneratedsSuper):
     def factory(*args_, **kwargs_):
         if CurrentSubclassModule_ is not None:
             subclass = getSubclassFromModule_(
-                CurrentSubclassModule_, angular_samplingType60)
+                CurrentSubclassModule_, angular_samplingType61)
             if subclass is not None:
                 return subclass(*args_, **kwargs_)
-        if angular_samplingType60.subclass:
-            return angular_samplingType60.subclass(*args_, **kwargs_)
+        if angular_samplingType61.subclass:
+            return angular_samplingType61.subclass(*args_, **kwargs_)
         else:
-            return angular_samplingType60(*args_, **kwargs_)
+            return angular_samplingType61(*args_, **kwargs_)
     factory = staticmethod(factory)
     def get_ns_prefix_(self):
         return self.ns_prefix_
@@ -42285,31 +42326,31 @@ class angular_samplingType60(GeneratedsSuper):
             return True
         else:
             return False
-    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='angular_samplingType60', pretty_print=True):
-        imported_ns_def_ = GenerateDSNamespaceDefs_.get('angular_samplingType60')
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='angular_samplingType61', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('angular_samplingType61')
         if imported_ns_def_ is not None:
             namespacedef_ = imported_ns_def_
         if pretty_print:
             eol_ = '\n'
         else:
             eol_ = ''
-        if self.original_tagname_ is not None and name_ == 'angular_samplingType60':
+        if self.original_tagname_ is not None and name_ == 'angular_samplingType61':
             name_ = self.original_tagname_
         if UseCapturedNS_ and self.ns_prefix_:
             namespaceprefix_ = self.ns_prefix_ + ':'
         showIndent(outfile, level, pretty_print)
         outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = set()
-        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='angular_samplingType60')
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='angular_samplingType61')
         outfile.write('>')
         self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_, pretty_print=pretty_print)
         outfile.write(self.convert_unicode(self.valueOf_))
         outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
-    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='angular_samplingType60'):
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='angular_samplingType61'):
         if self.units is not None and 'units' not in already_processed:
             already_processed.add('units')
             outfile.write(' units=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.units), input_name='units')), ))
-    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='angular_samplingType60', fromsubclass_=False, pretty_print=True):
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='angular_samplingType61', fromsubclass_=False, pretty_print=True):
         pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
@@ -42331,7 +42372,7 @@ class angular_samplingType60(GeneratedsSuper):
             self.units = ' '.join(self.units.split())
     def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
         pass
-# end class angular_samplingType60
+# end class angular_samplingType61
 
 
 class extractionType(GeneratedsSuper):
@@ -42520,7 +42561,7 @@ class extractionType(GeneratedsSuper):
 # end class extractionType
 
 
-class final_multi_reference_alignmentType61(GeneratedsSuper):
+class final_multi_reference_alignmentType62(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
     subclass = None
     superclass = None
@@ -42541,13 +42582,13 @@ class final_multi_reference_alignmentType61(GeneratedsSuper):
     def factory(*args_, **kwargs_):
         if CurrentSubclassModule_ is not None:
             subclass = getSubclassFromModule_(
-                CurrentSubclassModule_, final_multi_reference_alignmentType61)
+                CurrentSubclassModule_, final_multi_reference_alignmentType62)
             if subclass is not None:
                 return subclass(*args_, **kwargs_)
-        if final_multi_reference_alignmentType61.subclass:
-            return final_multi_reference_alignmentType61.subclass(*args_, **kwargs_)
+        if final_multi_reference_alignmentType62.subclass:
+            return final_multi_reference_alignmentType62.subclass(*args_, **kwargs_)
         else:
-            return final_multi_reference_alignmentType61(*args_, **kwargs_)
+            return final_multi_reference_alignmentType62(*args_, **kwargs_)
     factory = staticmethod(factory)
     def get_ns_prefix_(self):
         return self.ns_prefix_
@@ -42579,32 +42620,32 @@ class final_multi_reference_alignmentType61(GeneratedsSuper):
             return True
         else:
             return False
-    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='final_multi_reference_alignmentType61', pretty_print=True):
-        imported_ns_def_ = GenerateDSNamespaceDefs_.get('final_multi_reference_alignmentType61')
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='final_multi_reference_alignmentType62', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('final_multi_reference_alignmentType62')
         if imported_ns_def_ is not None:
             namespacedef_ = imported_ns_def_
         if pretty_print:
             eol_ = '\n'
         else:
             eol_ = ''
-        if self.original_tagname_ is not None and name_ == 'final_multi_reference_alignmentType61':
+        if self.original_tagname_ is not None and name_ == 'final_multi_reference_alignmentType62':
             name_ = self.original_tagname_
         if UseCapturedNS_ and self.ns_prefix_:
             namespaceprefix_ = self.ns_prefix_ + ':'
         showIndent(outfile, level, pretty_print)
         outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = set()
-        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='final_multi_reference_alignmentType61')
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='final_multi_reference_alignmentType62')
         if self.has__content():
             outfile.write('>%s' % (eol_, ))
-            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='final_multi_reference_alignmentType61', pretty_print=pretty_print)
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='final_multi_reference_alignmentType62', pretty_print=pretty_print)
             showIndent(outfile, level, pretty_print)
             outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
         else:
             outfile.write('/>%s' % (eol_, ))
-    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='final_multi_reference_alignmentType61'):
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='final_multi_reference_alignmentType62'):
         pass
-    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='final_multi_reference_alignmentType61', fromsubclass_=False, pretty_print=True):
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='final_multi_reference_alignmentType62', fromsubclass_=False, pretty_print=True):
         if pretty_print:
             eol_ = '\n'
         else:
@@ -42663,10 +42704,10 @@ class final_multi_reference_alignmentType61(GeneratedsSuper):
             value_ = self.gds_validate_string(value_, node, 'details')
             self.details = value_
             self.details_nsprefix_ = child_.prefix
-# end class final_multi_reference_alignmentType61
+# end class final_multi_reference_alignmentType62
 
 
-class extractionType62(GeneratedsSuper):
+class extractionType63(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
     subclass = None
     superclass = None
@@ -42691,13 +42732,13 @@ class extractionType62(GeneratedsSuper):
     def factory(*args_, **kwargs_):
         if CurrentSubclassModule_ is not None:
             subclass = getSubclassFromModule_(
-                CurrentSubclassModule_, extractionType62)
+                CurrentSubclassModule_, extractionType63)
             if subclass is not None:
                 return subclass(*args_, **kwargs_)
-        if extractionType62.subclass:
-            return extractionType62.subclass(*args_, **kwargs_)
+        if extractionType63.subclass:
+            return extractionType63.subclass(*args_, **kwargs_)
         else:
-            return extractionType62(*args_, **kwargs_)
+            return extractionType63(*args_, **kwargs_)
     factory = staticmethod(factory)
     def get_ns_prefix_(self):
         return self.ns_prefix_
@@ -42739,32 +42780,32 @@ class extractionType62(GeneratedsSuper):
             return True
         else:
             return False
-    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='extractionType62', pretty_print=True):
-        imported_ns_def_ = GenerateDSNamespaceDefs_.get('extractionType62')
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='extractionType63', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('extractionType63')
         if imported_ns_def_ is not None:
             namespacedef_ = imported_ns_def_
         if pretty_print:
             eol_ = '\n'
         else:
             eol_ = ''
-        if self.original_tagname_ is not None and name_ == 'extractionType62':
+        if self.original_tagname_ is not None and name_ == 'extractionType63':
             name_ = self.original_tagname_
         if UseCapturedNS_ and self.ns_prefix_:
             namespaceprefix_ = self.ns_prefix_ + ':'
         showIndent(outfile, level, pretty_print)
         outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = set()
-        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='extractionType62')
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='extractionType63')
         if self.has__content():
             outfile.write('>%s' % (eol_, ))
-            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='extractionType62', pretty_print=pretty_print)
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='extractionType63', pretty_print=pretty_print)
             showIndent(outfile, level, pretty_print)
             outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
         else:
             outfile.write('/>%s' % (eol_, ))
-    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='extractionType62'):
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='extractionType63'):
         pass
-    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='extractionType62', fromsubclass_=False, pretty_print=True):
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='extractionType63', fromsubclass_=False, pretty_print=True):
         if pretty_print:
             eol_ = '\n'
         else:
@@ -42849,10 +42890,10 @@ class extractionType62(GeneratedsSuper):
             value_ = self.gds_validate_string(value_, node, 'details')
             self.details = value_
             self.details_nsprefix_ = child_.prefix
-# end class extractionType62
+# end class extractionType63
 
 
-class final_multi_reference_alignmentType63(GeneratedsSuper):
+class final_multi_reference_alignmentType64(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
     subclass = None
     superclass = None
@@ -42873,13 +42914,13 @@ class final_multi_reference_alignmentType63(GeneratedsSuper):
     def factory(*args_, **kwargs_):
         if CurrentSubclassModule_ is not None:
             subclass = getSubclassFromModule_(
-                CurrentSubclassModule_, final_multi_reference_alignmentType63)
+                CurrentSubclassModule_, final_multi_reference_alignmentType64)
             if subclass is not None:
                 return subclass(*args_, **kwargs_)
-        if final_multi_reference_alignmentType63.subclass:
-            return final_multi_reference_alignmentType63.subclass(*args_, **kwargs_)
+        if final_multi_reference_alignmentType64.subclass:
+            return final_multi_reference_alignmentType64.subclass(*args_, **kwargs_)
         else:
-            return final_multi_reference_alignmentType63(*args_, **kwargs_)
+            return final_multi_reference_alignmentType64(*args_, **kwargs_)
     factory = staticmethod(factory)
     def get_ns_prefix_(self):
         return self.ns_prefix_
@@ -42911,32 +42952,32 @@ class final_multi_reference_alignmentType63(GeneratedsSuper):
             return True
         else:
             return False
-    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='final_multi_reference_alignmentType63', pretty_print=True):
-        imported_ns_def_ = GenerateDSNamespaceDefs_.get('final_multi_reference_alignmentType63')
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='final_multi_reference_alignmentType64', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('final_multi_reference_alignmentType64')
         if imported_ns_def_ is not None:
             namespacedef_ = imported_ns_def_
         if pretty_print:
             eol_ = '\n'
         else:
             eol_ = ''
-        if self.original_tagname_ is not None and name_ == 'final_multi_reference_alignmentType63':
+        if self.original_tagname_ is not None and name_ == 'final_multi_reference_alignmentType64':
             name_ = self.original_tagname_
         if UseCapturedNS_ and self.ns_prefix_:
             namespaceprefix_ = self.ns_prefix_ + ':'
         showIndent(outfile, level, pretty_print)
         outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = set()
-        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='final_multi_reference_alignmentType63')
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='final_multi_reference_alignmentType64')
         if self.has__content():
             outfile.write('>%s' % (eol_, ))
-            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='final_multi_reference_alignmentType63', pretty_print=pretty_print)
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='final_multi_reference_alignmentType64', pretty_print=pretty_print)
             showIndent(outfile, level, pretty_print)
             outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
         else:
             outfile.write('/>%s' % (eol_, ))
-    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='final_multi_reference_alignmentType63'):
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='final_multi_reference_alignmentType64'):
         pass
-    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='final_multi_reference_alignmentType63', fromsubclass_=False, pretty_print=True):
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='final_multi_reference_alignmentType64', fromsubclass_=False, pretty_print=True):
         if pretty_print:
             eol_ = '\n'
         else:
@@ -42995,7 +43036,7 @@ class final_multi_reference_alignmentType63(GeneratedsSuper):
             value_ = self.gds_validate_string(value_, node, 'details')
             self.details = value_
             self.details_nsprefix_ = child_.prefix
-# end class final_multi_reference_alignmentType63
+# end class final_multi_reference_alignmentType64
 
 
 class resolutionType(GeneratedsSuper):
@@ -44445,7 +44486,7 @@ class segmentationType(GeneratedsSuper):
         self.parent_object_ = kwargs_.get('parent_object_')
         self.ns_prefix_ = None
         self.file = file
-        self.validate_fileType64(self.file)
+        self.validate_fileType65(self.file)
         self.file_nsprefix_ = None
         self.details = details
         self.details_nsprefix_ = None
@@ -44478,20 +44519,20 @@ class segmentationType(GeneratedsSuper):
         return self.mask_details
     def set_mask_details(self, mask_details):
         self.mask_details = mask_details
-    def validate_fileType64(self, value):
+    def validate_fileType65(self, value):
         result = True
-        # Validate type fileType64, a restriction on xs:token.
+        # Validate type fileType65, a restriction on xs:token.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
             if not isinstance(value, str):
                 lineno = self.gds_get_node_lineno_()
                 self.gds_collector_.add_message('Value "%(value)s"%(lineno)s is not of the correct base simple type (str)' % {"value": value, "lineno": lineno, })
                 return False
             if not self.gds_validate_simple_patterns(
-                    self.validate_fileType64_patterns_, value):
-                self.gds_collector_.add_message('Value "%s" does not match xsd pattern restrictions: %s' % (encode_str_2_3(value), self.validate_fileType64_patterns_, ))
+                    self.validate_fileType65_patterns_, value):
+                self.gds_collector_.add_message('Value "%s" does not match xsd pattern restrictions: %s' % (encode_str_2_3(value), self.validate_fileType65_patterns_, ))
                 result = False
         return result
-    validate_fileType64_patterns_ = [['^([emd_\\d{4,}]+.*)$']]
+    validate_fileType65_patterns_ = [['^([emd_\\d{4,}]+.*)$']]
     def has__content(self):
         if (
             self.file is not None or
@@ -44566,8 +44607,8 @@ class segmentationType(GeneratedsSuper):
             value_ = self.gds_validate_string(value_, node, 'file')
             self.file = value_
             self.file_nsprefix_ = child_.prefix
-            # validate type fileType64
-            self.validate_fileType64(self.file)
+            # validate type fileType65
+            self.validate_fileType65(self.file)
         elif nodeName_ == 'details':
             value_ = child_.text
             value_ = self.gds_parse_string(value_, node, 'details')
@@ -45032,7 +45073,7 @@ class chainType(GeneratedsSuper):
         self.chain_id = chain_id
         self.chain_id_nsprefix_ = None
         self.residue_range = residue_range
-        self.validate_residue_rangeType65(self.residue_range)
+        self.validate_residue_rangeType66(self.residue_range)
         self.residue_range_nsprefix_ = None
         self.number_of_copies_in_final_model = number_of_copies_in_final_model
         self.number_of_copies_in_final_model_nsprefix_ = None
@@ -45077,20 +45118,20 @@ class chainType(GeneratedsSuper):
         return self.initial_model_type
     def set_initial_model_type(self, initial_model_type):
         self.initial_model_type = initial_model_type
-    def validate_residue_rangeType65(self, value):
+    def validate_residue_rangeType66(self, value):
         result = True
-        # Validate type residue_rangeType65, a restriction on xs:token.
+        # Validate type residue_rangeType66, a restriction on xs:token.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
             if not isinstance(value, str):
                 lineno = self.gds_get_node_lineno_()
                 self.gds_collector_.add_message('Value "%(value)s"%(lineno)s is not of the correct base simple type (str)' % {"value": value, "lineno": lineno, })
                 return False
             if not self.gds_validate_simple_patterns(
-                    self.validate_residue_rangeType65_patterns_, value):
-                self.gds_collector_.add_message('Value "%s" does not match xsd pattern restrictions: %s' % (encode_str_2_3(value), self.validate_residue_rangeType65_patterns_, ))
+                    self.validate_residue_rangeType66_patterns_, value):
+                self.gds_collector_.add_message('Value "%s" does not match xsd pattern restrictions: %s' % (encode_str_2_3(value), self.validate_residue_rangeType66_patterns_, ))
                 result = False
         return result
-    validate_residue_rangeType65_patterns_ = [['^(\\d+-\\d+)$']]
+    validate_residue_rangeType66_patterns_ = [['^(\\d+-\\d+)$']]
     def validate_source_nameType(self, value):
         result = True
         # Validate type source_nameType, a restriction on xs:string.
@@ -45216,8 +45257,8 @@ class chainType(GeneratedsSuper):
             value_ = self.gds_validate_string(value_, node, 'residue_range')
             self.residue_range = value_
             self.residue_range_nsprefix_ = child_.prefix
-            # validate type residue_rangeType65
-            self.validate_residue_rangeType65(self.residue_range)
+            # validate type residue_rangeType66
+            self.validate_residue_rangeType66(self.residue_range)
         elif nodeName_ == 'number_of_copies_in_final_model' and child_.text:
             sval_ = child_.text
             ival_ = self.gds_parse_integer(sval_, node, 'number_of_copies_in_final_model')
@@ -46013,8 +46054,8 @@ __all__ = [
     "angle_assignment_type",
     "angle_incrementType",
     "angular_samplingType",
-    "angular_samplingType58",
-    "angular_samplingType60",
+    "angular_samplingType59",
+    "angular_samplingType61",
     "annotatorType",
     "applied_symmetry_type",
     "author_ORCID_type",
@@ -46112,7 +46153,7 @@ __all__ = [
     "external_referencesType35",
     "external_referencesType4",
     "extractionType",
-    "extractionType62",
+    "extractionType63",
     "fib_current_type",
     "fib_dose_rate_type",
     "fib_duration_type",
@@ -46129,9 +46170,9 @@ __all__ = [
     "film_type",
     "final_modelType",
     "final_multi_reference_alignmentType",
-    "final_multi_reference_alignmentType59",
-    "final_multi_reference_alignmentType61",
-    "final_multi_reference_alignmentType63",
+    "final_multi_reference_alignmentType60",
+    "final_multi_reference_alignmentType62",
+    "final_multi_reference_alignmentType64",
     "final_reconstruction_type",
     "focused_ion_beamType",
     "fsc_curve_validation_type",
@@ -46150,8 +46191,8 @@ __all__ = [
     "high_frequency_cutoffType",
     "high_pressure_freezingType",
     "high_resolutionType",
-    "high_resolutionType54",
     "high_resolutionType55",
+    "high_resolutionType56",
     "image_recordingType",
     "image_recording_listType",
     "indexingType",
@@ -46167,7 +46208,7 @@ __all__ = [
     "ligand_macromolecule_type",
     "low_frequency_cutoffType",
     "low_resolutionType",
-    "low_resolutionType56",
+    "low_resolutionType57",
     "lower_energy_thresholdType",
     "macromoleculeType",
     "macromolecule_listType",
