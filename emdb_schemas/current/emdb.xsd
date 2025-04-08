@@ -3528,30 +3528,6 @@
             </xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <!-- <xs:element name="id" type="xs:string" minOccurs="1" maxOccurs="1">
-                <xs:annotation>
-                    <xs:documentation>
-                        PRIMARY KEY
-                    </xs:documentation>
-                </xs:annotation>
-                <xs:simpleType>
-                    <xs:restriction base="xs:string">
-                        <xs:pattern value="[][_,.;:&lt;&gt;()/\{}'`~!@#$%A-Za-z0-9*|+-]*"/>
-                    </xs:restriction>
-                </xs:simpleType>
-            </xs:element>
-            <xs:element name="image_processing_id" minOccurs="1" maxOccurs="1">
-                <xs:annotation>
-                    <xs:documentation>
-                        Pointer to _em_image_processing.id in the EM_IMAGE_PROCESSING category.
-                    </xs:documentation>
-                </xs:annotation>
-                <xs:simpleType>
-                    <xs:restriction base="xs:string">
-                        <xs:pattern value="[][_,.;:&lt;&gt;()/\{}'`~!@#$%A-Za-z0-9*|+-]*"/>
-                    </xs:restriction>
-                </xs:simpleType>
-            </xs:element> -->
             <xs:element name="type" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation>
