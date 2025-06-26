@@ -25,7 +25,7 @@
             </xs:element>
         </xs:sequence>
         <xs:attribute name="emdb_id" type="emdb_id_type" use="required"/>
-        <xs:attribute name="version" type="xs:token" default="3.0.11.0"/>
+        <xs:attribute name="version" type="xs:token" default="3.0.11.1"/>
     </xs:complexType>
     <xs:complexType name="admin_type">
         <xs:sequence>
@@ -3466,7 +3466,7 @@
             <xs:element name="residue_range" minOccurs="0" maxOccurs="1">
                 <xs:simpleType>
                     <xs:restriction base="xs:token">
-                        <xs:pattern value="\d+-\d+"/>
+                        <xs:pattern value="[+-]?[0-9]+-[+-]?[0-9]+"/>
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
@@ -4210,7 +4210,7 @@
                                     <xs:element minOccurs="0" name="residue_range">
                                         <xs:simpleType>
                                             <xs:restriction base="xs:token">
-                                                <xs:pattern value="\d+-\d+"/>
+                                                <xs:pattern value="[+-]?[0-9]+-[+-]?[0-9]+"/>
                                             </xs:restriction>
                                         </xs:simpleType>
                                     </xs:element>
