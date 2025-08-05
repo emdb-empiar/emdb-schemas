@@ -1363,6 +1363,7 @@
                                                   <xs:enumeration value="INTERPRO" />
                                                   <xs:enumeration value="GO" />
                                                   <xs:enumeration value="GENBANK" />
+                                                  <xs:enumeration value="NOR"/>
                                                   </xs:restriction>
                                                   </xs:simpleType>
                                                 </xs:attribute>
@@ -1416,6 +1417,7 @@
                                                   <xs:enumeration value="REFSEQ" />
                                                   <xs:enumeration value="GENBANK" />
                                                   <xs:enumeration value="UNIPROTKB" />
+                                                  <xs:enumeration value="NOR"/>
                                                   <xs:whiteSpace value="collapse" />
                                                   </xs:restriction>
                                                   </xs:simpleType>
