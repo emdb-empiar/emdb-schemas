@@ -4,6 +4,8 @@ on:
       - master
     types: [closed]
 
+permissions: {}
+
 jobs:
   deployment:
     if: github.event.pull_request.merged == true
