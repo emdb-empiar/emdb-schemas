@@ -1,5 +1,4 @@
-from distutils.core import setup
-from setuptools import find_packages
+from setuptools import find_packages, setup
 
 setup(
     name='emdb_schemas',
@@ -12,6 +11,10 @@ setup(
     author='sanja',
     author_email='sanja@ebi.ac.ik',
     description='EMDB schema files',
+    install_requires=[
+        'lxml>=6.1.1,<7.0.0',
+        'six>=1.17.0,<2.0.0',
+    ],
     zip_safe=False,
     include_package_data=True
 )

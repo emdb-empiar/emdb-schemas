@@ -7,16 +7,20 @@ on:
 
 permissions:
   contents: read
+
 jobs:
   test:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     steps:
 
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v6
+
+    - name: Install XML tooling
+      run: sudo apt-get update && sudo apt-get install -y libxml2-utils
 
     - name: Test in a sample data
       run: |
-        rsync ${{ secrets.SRUN_SERVER }}:${{ secrets.DATA_PATH }}/emd-8117-v30.xml .
+        curl -fsSL https://ftp.ebi.ac.uk/pub/databases/emdb/structures/EMD-8117/header/emd-8117-v30.xml -o emd-8117-v30.xml
         xmllint --noout --schema emdb_schemas/current/emdb_relaxed.xsd emd-8117-v30.xml
